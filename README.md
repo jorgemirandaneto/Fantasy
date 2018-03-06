@@ -2,7 +2,7 @@
 
 Aplicação com intuito de controlar as apostas do campeonato de Surf da WSL.
 
-A aplicação possui funcionalidades como:
+A aplicação possui funcionalidades como:</b>
 -Cadastro de participantes;
 -Cadastro de etapas da WSL.
 -Inclusão da pontuação.
