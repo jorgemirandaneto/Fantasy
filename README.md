@@ -17,6 +17,6 @@ nos surfistas escolhidos pelo aplicativo do fantasy da wsl.
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
 
-
+image:https://img.shields.io/github/issues/detail/u/badges/shields/979.svg[GitHub issue author]
 
 
