@@ -10,6 +10,8 @@ A aplicação possui funcionalidades como:
 
 A ideia surgiu da necessidade de controlar as apostas de um grupo formado por 12 amigos que acompanha a WSL e fazem apostas 
 nos surfistas escolhidos pelo aplicativo do fantasy da wsl. 
+
+
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
 
