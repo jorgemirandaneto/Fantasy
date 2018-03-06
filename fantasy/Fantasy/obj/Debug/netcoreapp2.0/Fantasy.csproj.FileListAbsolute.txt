@@ -1,0 +1,11 @@
+C:\Users\jorge\source\repos\Fantasy\Fantasy\bin\Debug\netcoreapp2.0\Fantasy.deps.json
+C:\Users\jorge\source\repos\Fantasy\Fantasy\bin\Debug\netcoreapp2.0\Fantasy.runtimeconfig.json
+C:\Users\jorge\source\repos\Fantasy\Fantasy\bin\Debug\netcoreapp2.0\Fantasy.runtimeconfig.dev.json
+C:\Users\jorge\source\repos\Fantasy\Fantasy\bin\Debug\netcoreapp2.0\Fantasy.dll
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.csprojResolveAssemblyReference.cache
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.csproj.CoreCompileInputs.cache
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.AssemblyInfoInputs.cache
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.AssemblyInfo.cs
+C:\Users\jorge\source\repos\Fantasy\Fantasy\bin\Debug\netcoreapp2.0\Fantasy.pdb
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.dll
+C:\Users\jorge\source\repos\Fantasy\Fantasy\obj\Debug\netcoreapp2.0\Fantasy.pdb
