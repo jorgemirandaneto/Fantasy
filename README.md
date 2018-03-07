@@ -1,4 +1,4 @@
-# Fantasy Pagamento de parafina.
+# Fantasy Pagamento de Parafina.
 
 Aplicação com intuito de controlar as apostas do campeonato de Surf da WSL.
 
