@@ -14,7 +14,7 @@ A ideia surgiu da necessidade de controlar as apostas de um grupo formado por 12
 nos surfistas escolhidos pelo aplicativo do fantasy da wsl. 
 
 
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![README.md](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
 
 
