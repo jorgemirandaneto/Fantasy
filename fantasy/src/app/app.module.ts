@@ -10,7 +10,8 @@ import { NotasComponent } from './notas/notas.component';
 import { ParticipantesComponent } from './participantes/participantes.component';
 import { TabelaGeralComponent } from './tabela-geral/tabela-geral.component';
 import { FormsModule } from '@angular/forms';
-import { ListaParticipanteComponent } from './lista-participante/lista-participante.component';
+
+import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { ListaParticipanteComponent } from './lista-participante/lista-participa
     NotasComponent,
     ParticipantesComponent,
     TabelaGeralComponent,
-    ListaParticipanteComponent,
+    TabelaParticipatesComponent,
   ],
   imports: [
     BrowserModule,
