@@ -10,6 +10,7 @@ import { NotasComponent } from './notas/notas.component';
 import { ParticipantesComponent } from './participantes/participantes.component';
 import { TabelaGeralComponent } from './tabela-geral/tabela-geral.component';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 
@@ -26,7 +27,8 @@ import { TabelaParticipatesComponent } from './tabela-participates/tabela-partic
     BrowserModule,
     AppRoutingModule,
     AlertModule.forRoot(),    
-    FormsModule   
+    FormsModule, 
+    HttpModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]
