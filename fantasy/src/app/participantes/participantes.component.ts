@@ -15,6 +15,7 @@ export class ParticipantesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
