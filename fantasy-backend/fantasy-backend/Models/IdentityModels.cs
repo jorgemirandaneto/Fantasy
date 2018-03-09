@@ -21,7 +21,7 @@ namespace fantasy_backend.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FantasyConnection", throwIfV1Schema: false)
         {
         }
         
