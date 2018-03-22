@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from './../service.service';
 import { Participate } from './../Models/Participantes';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-tabela-participates',
@@ -10,7 +11,7 @@ import { Participate } from './../Models/Participantes';
 })
 export class TabelaParticipatesComponent implements OnInit {
 
-  constructor(private http: ServiceService) { }
+  constructor(private http: ServiceService, private router: Router) { }
 
   participantes: Participate[] = []  ;
 
@@ -20,4 +21,7 @@ export class TabelaParticipatesComponent implements OnInit {
     })
   }
 
+  onNovo(){
+    this.router.navigate(["/Participante"]);
+  }
 }
