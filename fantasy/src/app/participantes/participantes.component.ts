@@ -11,11 +11,9 @@ export class ParticipantesComponent implements OnInit {
   onSubmit(form){
     console.log(form);
   }
-
   constructor() { }
 
-  ngOnInit() {
-    
+  ngOnInit() {   
   }
 
 }

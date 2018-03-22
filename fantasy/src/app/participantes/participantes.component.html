@@ -1,11 +1,11 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div class="form-group">
-    <label for="Nome">Nome:</label>
-    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="Nome" ngModel>
+    <label>Nome:</label>
+    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="Nome" ngModel required>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Endereço de e-mail</label>
-    <input type="email" class="form-control" id="Email" placeholder="nome@email.com.br" nome="Email" ngModel>
+    <label>Email:</label>
+    <input type="email" class="form-control" id="Email" placeholder="Nome" name="email" ngModel required email>
   </div>
   <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
