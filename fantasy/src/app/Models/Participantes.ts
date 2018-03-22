@@ -1,5 +1,5 @@
 export class Participate {
-    Codigo: string;
+    Id: string;
     Nome: string;
     Email: string;
 }

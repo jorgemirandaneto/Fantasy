@@ -14,7 +14,7 @@ const httpOptions = {
 export class ServiceService {
 
 
-  private HttpUrl = "http://www.mocky.io/v2/5aa204a02f0000cc12d46309";
+  private HttpUrl = "https://fantasywebapi.azurewebsites.net/api/Participantes";
 
   constructor(private http: Http) { }
   getParticipante() {
