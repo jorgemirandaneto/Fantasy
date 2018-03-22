@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace fantasy_backend
@@ -18,7 +19,14 @@ namespace fantasy_backend
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             // Web API routes
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter); //Remove o formato XML
+            config.Formatters.JsonFormatter.Indent = true; //Retorna os dados no formato JSON
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
