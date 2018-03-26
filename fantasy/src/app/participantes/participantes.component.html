@@ -1,11 +1,11 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
   <div class="form-group">
     <label>Nome:</label>
-    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="Nome" ngModel required>
+    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" ngModel required>
   </div>
   <div class="form-group">
     <label>Email:</label>
-    <input type="email" class="form-control" id="Email" placeholder="Nome" name="email" ngModel required email>
+    <input type="email" class="form-control" id="Email" placeholder="Email" name="email" ngModel required email>
   </div>
   <button type="submit" class="btn btn-success">Salvar</button>
   <div style="float:right;">
