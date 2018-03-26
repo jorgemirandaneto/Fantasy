@@ -1,4 +1,4 @@
-export class Participate {
+export class Participante {
     Id: string;
     Nome: string;
     Email: string;

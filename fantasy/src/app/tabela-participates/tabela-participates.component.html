@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"class="table table table-striped table-sm">
     <thead>
         <tr>
             <th>Código</th>
@@ -11,7 +11,6 @@
             <td>{{p.Id}}</td>
             <td>{{p.Nome}}</td>
             <td>{{p.Email}}</td>
-            <td></td>
         </tr>
     </tbody>
 </table> 

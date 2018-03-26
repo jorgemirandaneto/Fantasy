@@ -10,6 +10,8 @@ import { TabelaGeralComponent } from './tabela-geral/tabela-geral.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 
 
@@ -17,16 +19,18 @@ import { TabelaParticipatesComponent } from './tabela-participates/tabela-partic
   declarations: [
     AppComponent,
     NotasComponent,
-    ParticipantesComponent,
-    TabelaGeralComponent,
+    ParticipantesComponent,    
     TabelaParticipatesComponent,
+    TabelaGeralComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AlertModule.forRoot(),    
     FormsModule, 
-    HttpModule,  
+    HttpModule, 
+    HttpClientModule,    
+    DataTablesModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
