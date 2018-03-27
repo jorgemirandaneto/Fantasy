@@ -32,7 +32,7 @@ namespace fantasy_backend.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostParticipante(Participante participante)
+        public IHttpActionResult PostParticipante([FromBody] Participante participante)
         {
             if (!ModelState.IsValid)
             {
