@@ -9,24 +9,30 @@ import { Location } from '@angular/common';
   selector: 'app-participantes',
   templateUrl: './participantes.component.html',
   styleUrls: ['./participantes.component.css'],
-  providers:[ServiceService]
+  providers: [ServiceService]
 })
 export class ParticipantesComponent implements OnInit {
 
   @Input() participante: Participante;
 
-  constructor(private router:Router,private location: Location,private service: ServiceService) { }
+  constructor(private router: Router, private location: Location, private service: ServiceService) { }
 
-  ngOnInit() {   
+  ngOnInit() {
   }
 
-  onSalvarParticipante(formParticipante){    
-    let form = formParticipante.value
-    console.log(formParticipante);
-    this.service.addParticipante(form).subscribe(()=> this.onVoltarTabelaParticipante())
+  onSalvarParticipante(form) {
+    let result;
+    let participanteValue = form.value;       
+    if (participanteValue.id) {
+      //result = this.recursoService.updateRecurso(recursoValue);
+    } else {
+      result = this.service.addParticipante(participanteValue);
+    }
+
+result.subscribe(data => this.router.navigate(['recurso']));
   }
 
-  onVoltarTabelaParticipante(){
+  onVoltarTabelaParticipante() {
     this.location.back();
   }
 }
