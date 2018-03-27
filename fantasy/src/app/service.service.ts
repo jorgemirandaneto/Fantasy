@@ -14,7 +14,7 @@ const httpOptions = {
 export class ServiceService {
 
 
-  private HttpUrl = "https://fantasywebapi.azurewebsites.net/api/Participantes";
+  private HttpUrl = "http://localhost:52372/api/Participantes";
 
 
   constructor(private http: HttpClient, private https: Http) { }
@@ -38,7 +38,7 @@ export class ServiceService {
     let body = JSON.stringify(participante);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.https.post(this.HttpUrl, body, options).map(res => res.json());
+    return this.https.post(this.HttpUrl, body, httpOptions).map(res => res.json());
   }
 
 
