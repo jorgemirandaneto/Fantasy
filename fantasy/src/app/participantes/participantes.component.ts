@@ -27,8 +27,10 @@ export class ParticipantesComponent implements OnInit {
     let participanteValue = form.value;
     console.log(participanteValue);
     result = this.service.addParticipante(participanteValue);
-    result.subscribe(data => this.location.back());
+    result.subscribe(data => this.location.back())
   }
+
+  
 
   onVoltarTabelaParticipante() {
     this.location.back();

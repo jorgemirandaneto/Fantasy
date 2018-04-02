@@ -14,15 +14,15 @@ const httpOptions = {
 export class ServiceService {
 
 
-  private HttpUrl = "http://localhost:52372/api/Participantes";
+  private HttpUrl = "http://fantasy.apphb.com/api/Participantes";
 
 
-  constructor(private http: HttpClient, private https: Http) { }
+  constructor(private http: HttpClient) { }
   //Pegando todos os Participantes
   getParticipante(): Observable<Participante[]> {
     return this.http.get<Participante[]>(this.HttpUrl).pipe(
-      tap(heroes => this.log(`fetched heroes`)),
-      catchError(this.handleError('getHeroes', []))
+      tap(heroes => this.log(`Participante Listado`)),
+      catchError(this.handleError('getParticipante', []))
     );
   }
 
@@ -32,6 +32,16 @@ export class ServiceService {
         tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
         catchError(this.handleError('addParticipante', participante))
       );
+  }
+
+  deleteHero (participante: Participante | number): Observable<Participante> {
+    const id = typeof participante === 'number' ? participante : participante.Id;
+    const url = `${this.HttpUrl}/${id}`;
+ 
+    return this.http.delete<Participante>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted participante id=${id}`)),
+      catchError(this.handleError<Participante>('deleteParticipante'))
+    );
   }
 
 
