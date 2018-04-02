@@ -27,13 +27,11 @@ export class TabelaParticipatesComponent implements OnInit {
     this.dtOptions = {
       language: {'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json'},
       pagingType: 'full_numbers',
-      pageLength: 2      
+      pageLength: 10      
   }
     this.http.getParticipante().subscribe(
       p => {this.participantes = p; this.dtTrigger.next();})    
- 
-
-    }
+     }
   onNovo(){
     this.router.navigate(["/Participante"]);
   }

@@ -8,8 +8,8 @@ using System.Web.Http.Cors;
 
 namespace fantasy_backend.Controllers
 {
-
-    public class ParticipantesController : ApiController
+	//[EnableCors(origins: "*", headers: "*", methods: "*")]
+	public class ParticipantesController : ApiController
     {
         private FantasyContext db = new FantasyContext();
 
@@ -32,7 +32,7 @@ namespace fantasy_backend.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostParticipante([FromBody] Participante participante)
+        public IHttpActionResult PostParticipante(Participante participante)
         {
             if (!ModelState.IsValid)
             {
