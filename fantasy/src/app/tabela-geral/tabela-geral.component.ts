@@ -11,5 +11,6 @@ export class TabelaGeralComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

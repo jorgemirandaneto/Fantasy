@@ -1,17 +1,26 @@
-<table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"class="table table table-striped table-sm">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table table-striped table-sm">
     <thead>
         <tr>
             <th>Código</th>
             <th>Nome</th>
             <th>Email</th>
+            <th></th>
         </tr>
     </thead>
-    <tbody> 
+    <tbody>
         <tr *ngFor="let p of participantes">
             <td>{{p.Id}}</td>
             <td>{{p.Nome}}</td>
             <td>{{p.Email}}</td>
+            <td>
+                <button type="button" class="btn btn-default">
+                    <span class="fas far fa-edit"></span>
+                  </button>
+                  <button type="button" class="btn btn-default" (click)="delete(p)">
+                    <span class="far fa-trash-alt"></span>
+                  </button>
+            </td>
         </tr>
     </tbody>
-</table> 
+</table>
 <button class="btn btn-default" (click)="onNovo()">Novo</button>
