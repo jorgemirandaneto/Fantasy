@@ -26,19 +26,12 @@ export class ServiceService {
     );
   }
 
-  //Salvando Participantes
-  // addParticipante(participante: Participante): Observable<Participante> {
-  //   return this.http.post<Participante>(this.HttpUrl, participante, httpOptions).pipe(
-  //     tap((participante: Participante) => this.log(`adicionado participante w\ id=${participante.Id}`)),
-  //     catchError(this.handleError<Participante>('addParticipante'))
-  //   )
-  // }
-
-  addParticipante(participante) {
-    let body = JSON.stringify(participante);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.https.post(this.HttpUrl, body, httpOptions).map(res => res.json());
+  addParticipante (participante: Participante): Observable<Participante> {
+    return this.http.post<Participante>(this.HttpUrl, participante, httpOptions)
+      .pipe(
+        tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
+        catchError(this.handleError('addParticipante', participante))
+      );
   }
 
 

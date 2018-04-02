@@ -3,10 +3,12 @@ using fantasy_backend.Models;
 using System;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace fantasy_backend.Controllers
 {
-    public class EtapaParticipantesController : ApiController
+	[EnableCors(origins: "*", headers: "*", methods: "*")]
+	public class EtapaParticipantesController : ApiController
     {
         FantasyContext db = new FantasyContext();
 
