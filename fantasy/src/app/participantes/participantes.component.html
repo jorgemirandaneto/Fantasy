@@ -1,19 +1,20 @@
-<form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
-
-  <div class="form-group" hidden>
-    <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
-  </div>
-  <div class="form-group">
-    <label>Nome:</label>
-    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" [(ngModel)]="participante.Nome" required #Nome="ngModel">
-  </div>
-  <div class="form-group">
-    <label>Email:</label>
-    <input type="email" class="form-control" id="Email" placeholder="Email" name="email" [(ngModel)]="participante.Email" #Email="ngModel" required
-      email>
-  </div>
-  <button type="submit" class="btn btn-success">Salvar</button>
-  <div style="float:right;">
-    <button class="btn btn-defaut" (click)="onVoltarTabelaParticipante()">Voltar</button>
-  </div>
-</form>
+<div *ngIf="participante">
+  <form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
+    <div class="form-group" hidden>
+      <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Nome:</label>
+      <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" [(ngModel)]="participante.Nome" required #Nome="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" id="Email" placeholder="Email" name="email" [(ngModel)]="participante.Email" #Email="ngModel" required
+        email>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <div style="float:right;">
+      <button class="btn btn-defaut" (click)="onVoltarTabelaParticipante()">Voltar</button>
+    </div>
+  </form>
+</div>

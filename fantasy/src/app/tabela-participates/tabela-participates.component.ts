@@ -54,11 +54,10 @@ export class TabelaParticipatesComponent implements OnInit {
     }
   }
 
-
   rerender(): void {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
       this.getParticipantes();
-      dtInstance.destroy();    
+      dtInstance.destroy();
     });
   }
 }
