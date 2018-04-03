@@ -34,7 +34,8 @@ export class ServiceService {
   }
 
   updateParticipante(participante: Participante): Observable<Participante> {
-    return this.http.put<Participante>(this.HttpUrl, participante, httpOptions).pipe(
+    const url = `${this.HttpUrl}/${participante.Id}`;
+    return this.http.put<Participante>(url, participante, httpOptions).pipe(
         tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
         catchError(this.handleError('addParticipante', participante))
       );
