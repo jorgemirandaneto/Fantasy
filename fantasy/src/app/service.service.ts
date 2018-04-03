@@ -26,24 +26,37 @@ export class ServiceService {
     );
   }
 
-  addParticipante (participante: Participante): Observable<Participante> {
-    return this.http.post<Participante>(this.HttpUrl, participante, httpOptions)
-      .pipe(
+  addParticipante(participante: Participante): Observable<Participante> {
+    return this.http.post<Participante>(this.HttpUrl, participante, httpOptions).pipe(
         tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
         catchError(this.handleError('addParticipante', participante))
       );
   }
 
-  deleteHero (participante: Participante | number): Observable<Participante> {
+  updateParticipante(participante: Participante): Observable<Participante> {
+    return this.http.put<Participante>(this.HttpUrl, participante, httpOptions).pipe(
+        tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
+        catchError(this.handleError('addParticipante', participante))
+      );
+  }
+
+  deleteHero(participante: Participante | number): Observable<Participante> {
     const id = typeof participante === 'number' ? participante : participante.Id;
     const url = `${this.HttpUrl}/${id}`;
- 
+
     return this.http.delete<Participante>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted participante id=${id}`)),
       catchError(this.handleError<Participante>('deleteParticipante'))
     );
   }
 
+  getParticipanteId(id: number): Observable<Participante> {
+    const url = `${this.HttpUrl}/${id}`;
+    return this.http.get<Participante>(url).pipe(
+      tap(p => this.log(`participante buscado id=${id}`)),
+      catchError(this.handleError<Participante>(`Participante id=${id}`))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

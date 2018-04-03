@@ -14,7 +14,7 @@
             <td>{{p.Nome}}</td>
             <td>{{p.Email}}</td>
             <td>
-                <button type="button" class="btn btn-default">
+                <button type="button" class="btn btn-default" [routerLink]="['/editParticipante', p.Id]">
                     <span class="fas far fa-edit"></span>
                   </button>
                   <button type="button" class="btn btn-default" (click)="delete(p)">

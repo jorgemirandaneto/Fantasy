@@ -28,7 +28,7 @@ export class TabelaParticipatesComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       language: { 'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json' },
-      pagingType: 'full_numbers',
+      //pagingType: 'full_numbers',
       pageLength: 10
     }
     this.getParticipantes();
@@ -47,12 +47,14 @@ export class TabelaParticipatesComponent implements OnInit {
     console.log(participante.Id);
     if (confirm("Tem certeza de que deseja excluir " + participante.Nome + "?")) {
       let result = this.participanteService.deleteHero(participante)
-      result.subscribe(d => this.rerender(),      
+      result.subscribe(d => this.rerender(),
         err => {
           alert("Não foi possível excluir o Participante.");
         });
     }
   }
+
+  
 
   rerender(): void {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
