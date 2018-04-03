@@ -9,9 +9,10 @@ const routes: Routes = [
   { path: 'Participante', component: ParticipantesComponent },
   { path: 'Notas', component: NotasComponent },
   { path: 'TabelaGeral', component: TabelaGeralComponent },
-  {path:'tabala-participantes',component:TabelaParticipatesComponent},
+  {path:'TabelaParticipantes',component:TabelaParticipatesComponent},
+  { path: 'editParticipante/:id', component: ParticipantesComponent },
   //rota pricipal
-  { path: '', pathMatch: 'full', redirectTo: 'tabala-participantes' }
+  { path: '', pathMatch: 'full', redirectTo: 'TabelaParticipantes' }
 ];
 
 @NgModule({
