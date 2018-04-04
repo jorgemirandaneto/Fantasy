@@ -14,9 +14,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class ParticipantesComponent implements OnInit {
 
-  //participanteNovo: Participante = new Participante();
+  @Input() participante: Participante = new Participante();
   form: FormGroup;
-  @Input() participante : Participante; 
   
   constructor(private router: Router, private location: Location, private service: ServiceService,private route: ActivatedRoute,) { }
 
@@ -38,8 +37,10 @@ export class ParticipantesComponent implements OnInit {
 
   getParticipanteEdit(){
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getParticipanteId(id)
+    if(id > 0){
+      this.service.getParticipanteId(id)
       .subscribe(p => this.participante = p);
+    }    
   }
 
   onVoltarTabelaParticipante() {

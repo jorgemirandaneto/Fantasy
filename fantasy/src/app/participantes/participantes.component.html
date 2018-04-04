@@ -1,4 +1,4 @@
-<div *ngIf="participante">
+
   <form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
     <div class="form-group" hidden>
       <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
@@ -17,4 +17,4 @@
       <button class="btn btn-defaut" (click)="onVoltarTabelaParticipante()">Voltar</button>
     </div>
   </form>
-</div>
+
