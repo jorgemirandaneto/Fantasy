@@ -1,13 +1,13 @@
 
   <form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
-    <div class="form-group" hidden>
+    <div class="form-group" style="width: 100%">
       <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width: 100%">
       <label>Nome:</label>
       <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" [(ngModel)]="participante.Nome" required #Nome="ngModel">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width: 100%">
       <label>Email:</label>
       <input type="email" class="form-control" id="Email" placeholder="Email" name="email" [(ngModel)]="participante.Email" #Email="ngModel" required
         email>

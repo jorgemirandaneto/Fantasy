@@ -27,6 +27,8 @@
     "datatables.net": "^1.10.16",
     "datatables.net-bs4": "^1.10.16",
     "datatables.net-dt": "^1.10.16",
+    "datatables.net-responsive": "^2.2.1",
+    "datatables.net-responsive-dt": "^2.2.1",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^2.0.2",
     "rxjs": "^5.5.6",
