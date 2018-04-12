@@ -20,16 +20,18 @@ export class TabelaParticipatesComponent implements OnInit {
   constructor(private participanteService: ServiceService, private router: Router, private location: Location) { }
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
 
   participantes: Participante[] = [];
 
   ngOnInit(): void {
-    this.dtOptions = {
+    this.dtOptions = {    
       language: { 'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json' },
       //pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 10,
+      responsive: true
+      
     }
     this.getParticipantes();
   }

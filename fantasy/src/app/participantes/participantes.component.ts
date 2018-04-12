@@ -28,10 +28,10 @@ export class ParticipantesComponent implements OnInit {
     let participanteValue = form.value;
     if(participanteValue.Id){
       result = this.service.updateParticipante(participanteValue);
-      result.subscribe(data => this.location.back())
+      result.subscribe(data => this.onVoltarTabelaParticipante())
     }else{
       result = this.service.addParticipante(participanteValue);
-      result.subscribe(data => this.location.back())
+      result.subscribe(data => this.onVoltarTabelaParticipante())
     }    
   }
 
@@ -44,6 +44,6 @@ export class ParticipantesComponent implements OnInit {
   }
 
   onVoltarTabelaParticipante() {
-    this.location.back();
+    this.router.navigated["\TabelaParticipantes"];
   }
 }
