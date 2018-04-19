@@ -28,17 +28,17 @@ export class ServiceService {
 
   addParticipante(participante: Participante): Observable<Participante> {
     return this.http.post<Participante>(this.HttpUrl, participante, httpOptions).pipe(
-        tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
-        catchError(this.handleError('addParticipante', participante))
-      );
+      tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
+      catchError(this.handleError('addParticipante', participante))
+    );
   }
 
   updateParticipante(participante: Participante): Observable<Participante> {
     const url = `${this.HttpUrl}/${participante.Id}`;
     return this.http.put<Participante>(url, participante, httpOptions).pipe(
-        tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
-        catchError(this.handleError('addParticipante', participante))
-      );
+      tap((participante: Participante) => this.log(`added participante id=${participante.Id}`)),
+      catchError(this.handleError('addParticipante', participante))
+    );
   }
 
   deleteHero(participante: Participante | number): Observable<Participante> {

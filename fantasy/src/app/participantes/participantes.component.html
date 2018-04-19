@@ -1,20 +1,29 @@
-
-  <form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
-    <div class="form-group" style="width: 100%" hidden>
-      <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
-    </div>
-    <div class="form-group" style="width: 100%">
-      <label>Nome:</label>
-      <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" [(ngModel)]="participante.Nome" required #Nome="ngModel">
-    </div>
-    <div class="form-group" style="width: 100%">
-      <label>Email:</label>
-      <input type="email" class="form-control" id="Email" placeholder="Email" name="email" [(ngModel)]="participante.Email" #Email="ngModel" required
-        email>
-    </div>
+<br>
+<br>
+<form #f="ngForm" (ngSubmit)="onSalvarParticipante(f)">
+  <div class="form-group" style="width: 100%" hidden>
+    <input type="text" class="form-control" id="id" name="Id" [(ngModel)]="participante.Id" #Id="ngModel">
+  </div>
+  <div class="form-group" style="width: 100%">
+    <label>Nome:</label>
+    <input type="text" class="form-control" id="Nome" placeholder="Nome" name="nome" [(ngModel)]="participante.Nome" required
+      #Nome="ngModel">
+  </div>
+  <div *ngIf="!Nome.valid && Nome.touched" class="alert alert-danger" role="alert">
+    Preencha o nome do participante!
+  </div>
+  <div class="form-group" style="width: 100%">
+    <label>Email:</label>
+    <input type="email" class="form-control" id="Email" placeholder="Email" name="email" [(ngModel)]="participante.Email" #Email="ngModel"
+      required email>
+  </div>
+  <div *ngIf="!Email.valid && Email.touched" class="alert alert-danger" role="alert">
+    Preencha o email do participante!
+  </div>
+  <div style="float:right;">
     <button type="submit" class="btn btn-success">Salvar</button>
-    <div style="float:right;">
-      <button class="btn btn-defaut" (click)="onVoltarTabelaParticipante()">Voltar</button>
-    </div>
-  </form>
+    <button class="btn btn-primary" (click)="onVoltar()">Voltar</button>
+  </div>
 
+</form>
+<ngx-alerts></ngx-alerts>
