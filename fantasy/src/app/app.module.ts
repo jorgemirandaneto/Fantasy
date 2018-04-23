@@ -15,6 +15,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { TabelaParticipatesComponent } from './tabela-participates/tabela-partic
     ParticipantesComponent,
     TabelaParticipatesComponent,
     TabelaGeralComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { TabelaParticipatesComponent } from './tabela-participates/tabela-partic
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

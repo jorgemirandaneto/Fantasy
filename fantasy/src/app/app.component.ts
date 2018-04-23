@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { LoginService } from './login/login.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private loginService: LoginService) { }
+
+  title = 'app'; 
+
+  validarMenu = false;
+
+  OnInit(){
+    this.loginService.emitirMenu.subscribe(
+      mostrar => this.validarMenu = mostrar
+    );
+  }
 }
