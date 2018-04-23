@@ -30,7 +30,9 @@
     "datatables.net-responsive": "^2.2.1",
     "datatables.net-responsive-dt": "^2.2.1",
     "jquery": "^3.3.1",
+    "ngx-alerts": "^2.2.2",
     "ngx-bootstrap": "^2.0.2",
+    "ngx-loading": "^1.0.14",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
