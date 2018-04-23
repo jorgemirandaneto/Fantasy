@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { TabelaGeralComponent } from './tabela-geral/tabela-geral.component';
 import { NotasComponent } from './notas/notas.component';
 
@@ -12,8 +13,9 @@ const routes: Routes = [
   { path: 'TabelaGeral', component: TabelaGeralComponent },
   {path:'TabelaParticipantes',component:TabelaParticipatesComponent},
   { path: 'editParticipante/:id', component: ParticipantesComponent },
+  {path:'Login',component:LoginComponent},
   //rota pricipal
-  { path: '', pathMatch: 'full', redirectTo: 'createParticipante' }
+  { path: '', pathMatch: 'full', redirectTo: 'Login' }
 ];
 
 @NgModule({
