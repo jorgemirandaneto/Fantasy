@@ -29,22 +29,21 @@ export class ParticipantesComponent implements OnInit {
     this.getParticipanteEdit();
   }
 
-  async onSalvarParticipante(form) {
-    this.loading = true;
-    if (form.status === "VALID") {      
-      await this.delay(5000);
-      let result;
-      let participanteValue = form.value;
+  onSalvarParticipante(form) {    
+    let result;
+    let participanteValue = form.value;
+    if (form.status === "VALID") {
+      this.loading = true;
       if (participanteValue.Id) {
         result = this.service.updateParticipante(participanteValue);
-        result.subscribe(data => this.alertService.success('Participante alterado com sucesso!'),this.onVoltar(), this.loading = false)
+        result.subscribe(data => this.alertService.success('Participante alterado com sucesso!'), this.onVoltar(), this.loading = false)
       } else {
         result = this.service.addParticipante(participanteValue);
         result.subscribe(data => this.alertService.success('Participante salvo com sucesso!'), this.loading = false)
         form.reset();
       }
     } else {
-      console.log(form.status)
+      console.log(form)      
     }
   }
 
