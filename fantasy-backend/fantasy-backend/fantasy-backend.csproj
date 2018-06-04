@@ -252,6 +252,7 @@
     <Compile Include="Controllers\EtapaParticipantesController.cs" />
     <Compile Include="Controllers\EtapasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ParticipantesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,6 +261,14 @@
     <Compile Include="Migrations\201803090105551_criando-as-tables.cs" />
     <Compile Include="Migrations\201803090105551_criando-as-tables.Designer.cs">
       <DependentUpon>201803090105551_criando-as-tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041423046_JWT.cs" />
+    <Compile Include="Migrations\201806041423046_JWT.Designer.cs">
+      <DependentUpon>201806041423046_JWT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041433254_Atualizacao Participante.cs" />
+    <Compile Include="Migrations\201806041433254_Atualizacao Participante.Designer.cs">
+      <DependentUpon>201806041433254_Atualizacao Participante.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -351,6 +360,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803090105551_criando-as-tables.resx">
       <DependentUpon>201803090105551_criando-as-tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041423046_JWT.resx">
+      <DependentUpon>201806041423046_JWT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041433254_Atualizacao Participante.resx">
+      <DependentUpon>201806041433254_Atualizacao Participante.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
