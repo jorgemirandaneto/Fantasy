@@ -12,7 +12,7 @@ namespace fantasy_backend.Controllers
 	public class ParticipantesController : ApiController
     {
         private FantasyContext db = new FantasyContext();
-
+        [Authorize]
         [HttpGet]
         public IQueryable<Participante> GetParticipantes()
         {
