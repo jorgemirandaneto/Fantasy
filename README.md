@@ -13,7 +13,7 @@ A aplicação possui funcionalidades como:
 A ideia surgiu da necessidade de controlar as apostas de um grupo formado por 12 amigos que acompanha a WSL e fazem apostas 
 nos surfistas escolhidos pelo aplicativo do fantasy da wsl. 
 
-<li> Link do Back-End <a href="https://github.com/jorgemirandaneto/Fantasy-Back-End">Back-End Fantasy</a>
+<li><a href="https://github.com/jorgemirandaneto/Fantasy-Back-End">Back-End Fantasy</a>
 
 ![README.md](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
