@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LoginService],
 })
 export class AppComponent {
   constructor(private loginService: LoginService) { }
@@ -15,7 +16,8 @@ export class AppComponent {
 
   OnInit(){
     this.loginService.emitirMenu.subscribe(
-      mostrar => this.validarMenu = mostrar
-    );
+      mostrar => this.validarMenu = mostrar,
+      console.log(this.validarMenu)
+    );    
   }
 }

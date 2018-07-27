@@ -1,7 +1,8 @@
 import { Usuario } from './../Models/Usuario';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +11,16 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   usuario = new Usuario();
-  formParticipante: FormGroup;
+  formLogin: FormGroup;
+  emitirMenu = new EventEmitter<boolean>();
 
-  constructor(private loginService: LoginService) { }
-  
+  constructor(private loginService: LoginService, private router: Router) { }
+
   ngOnInit() {
   }
 
-  validarUsuario(usuario: Usuario){
-    console.log(usuario.nome);
-    //this.loginService.fazerLogin(usuario);
+  validarUsuario(form) {
+    console.log(form);
+    this.loginService.fazerLogin(form);
   }
 }
