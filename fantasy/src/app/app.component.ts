@@ -4,18 +4,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LoginService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   title = 'app'; 
 
   validarMenu = false;
 
-  OnInit(){
+  ngOnInit(){
     this.loginService.emitirMenu.subscribe(
-      mostrar => this.validarMenu = mostrar
+      mostrar => this.validarMenu = mostrar,      
     );
+    console.log('cu')
   }
 }
