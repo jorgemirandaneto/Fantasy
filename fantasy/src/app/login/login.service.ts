@@ -4,17 +4,17 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
-  emitirMenu = new EventEmitter<boolean>();
+  @Output() emitirMenu = new EventEmitter();
   constructor(private router: Router) { }
   fazerLogin(form) {
     console.log(form.nome);
-    if(form.nome != null){
+    if(form.nome != ""){
       this.emitirMenu.emit(true);
-      this.router.navigate(['TabelaParticipantes'])
-      console.log(this.emitirMenu.emit(true));
-    }else{
-      this.emitirMenu.emit(true);
-      console.log('errado'+form.nome);
+      this.router.navigate(['createParticipante']);
+      console.log('certo');
+    // }else{
+    //   this.emitirMenu.emit(false);
+    //   console.log('errado');
     }
   }
 }

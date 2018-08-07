@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  validarUsuario(form) {
-    console.log(form);
-    this.loginService.fazerLogin(form);
+  
+  validarUsuario(form){     
+    console.log(form.value);
+    this.loginService.fazerLogin(form.value);
   }
 }
