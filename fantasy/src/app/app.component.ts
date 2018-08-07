@@ -16,8 +16,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.loginService.emitirMenu.subscribe(
-      mostrar => this.validarMenu = mostrar,      
-    );
-    console.log('cu')
+
+      mostrar => this.validarMenu = mostrar,
+      console.log(this.validarMenu)
+
   }
 }
