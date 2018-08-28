@@ -6,12 +6,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 import { ParticipantesComponent } from './participantes/participantes.component';
+import { AuthGuard } from './AuthGuard';
 
 const routes: Routes = [
-  { path: 'createParticipante', component:  ParticipantesComponent},
+  { path: 'createParticipante', component:  ParticipantesComponent,canActivate: [AuthGuard]},
   { path: 'Notas', component: NotasComponent },
   { path: 'TabelaGeral', component: TabelaGeralComponent },
-  {path:'TabelaParticipantes',component:TabelaParticipatesComponent},
+  {path:'TabelaParticipantes',component:TabelaParticipatesComponent,canActivate: [AuthGuard] },
   { path: 'editParticipante/:id', component: ParticipantesComponent },
   {path:'Login',component:LoginComponent},
   //rota pricipal
