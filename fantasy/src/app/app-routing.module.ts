@@ -7,13 +7,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 import { ParticipantesComponent } from './participantes/participantes.component';
 import { AuthGuard } from './AuthGuard';
+import { JwtHelper } from '../../node_modules/angular2-jwt';
 
 const routes: Routes = [
   { path: 'createParticipante', component:  ParticipantesComponent,canActivate: [AuthGuard]},
-  { path: 'Notas', component: NotasComponent },
-  { path: 'TabelaGeral', component: TabelaGeralComponent },
+  { path: 'Notas', component: NotasComponent ,canActivate:[AuthGuard]},
+  { path: 'TabelaGeral', component: TabelaGeralComponent,canActivate:[AuthGuard] },
   {path:'TabelaParticipantes',component:TabelaParticipatesComponent,canActivate: [AuthGuard] },
-  { path: 'editParticipante/:id', component: ParticipantesComponent },
+  { path: 'editParticipante/:id', component: ParticipantesComponent,canActivate:[AuthGuard] },
   {path:'Login',component:LoginComponent},
   //rota pricipal
   { path: '', pathMatch: 'full', redirectTo: 'Login' }
@@ -21,6 +22,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard,JwtHelper]
 })
 export class AppRoutingModule { }

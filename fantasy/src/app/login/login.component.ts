@@ -19,18 +19,16 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+    this.emitirMenu.emit(false);
   }
 
   validarUsuario(form) {
-    this.loginService.login(form)
-    .pipe(first())
-    .subscribe(
-      data => {
-        this.router.navigate(['createParticipante']);
-      },
-      error => {
-        this.error = error;
+    this.loginService.login(form.value).subscrible(retorno => {
+      let menu = retorno;
+      if (menu == "true") {
+        this.emitirMenu.emit(true);
       }
+    }
     )
   }
 }

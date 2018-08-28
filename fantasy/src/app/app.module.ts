@@ -17,6 +17,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { AuthGuard } from './AuthGuard';
+import { JwtHelper } from '../../node_modules/angular2-jwt';
 
 
 @NgModule({
@@ -47,7 +49,7 @@ import { LoginService } from './login/login.service';
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService],
+  providers: [LoginService,AuthGuard,JwtHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
