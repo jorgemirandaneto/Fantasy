@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Launch localhost",
-            "type": "firefox",
+            "type": "Chrome",
             "request": "launch",
             "reAttach": true,
             "url": "http://localhost/index.html",
