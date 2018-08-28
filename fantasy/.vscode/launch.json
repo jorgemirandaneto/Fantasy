@@ -1,16 +1,19 @@
 {
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [        
         {
             "name": "Launch localhost",
-            "type": "Chrome",
+            "type": "chrome",
             "request": "launch",
-            "reAttach": true,
-            "url": "http://localhost/index.html",
-            "pathMappings": [{
-                "url": "http://localhost",
-                "path": "${workspaceFolder}"
-            }]
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/wwwroot"
+        },
+        {
+            "name": "Launch index.html",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html"
+        },]
         }
     ]
 }
