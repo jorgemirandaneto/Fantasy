@@ -19,6 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { AuthGuard } from './AuthGuard';
 import { JwtHelper } from '../../node_modules/angular2-jwt';
+import { NotasEtapasComponent } from './notas-etapas/notas-etapas.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { JwtHelper } from '../../node_modules/angular2-jwt';
     TabelaParticipatesComponent,
     TabelaGeralComponent,
     LoginComponent,
+    NotasEtapasComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
