@@ -13,22 +13,16 @@ import { first } from '../../../node_modules/rxjs/operators';
 export class LoginComponent implements OnInit {
   usuario = new Usuario();
   formLogin: FormGroup;
-  emitirMenu = new EventEmitter<boolean>();
   error = '';
 
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-    this.emitirMenu.emit(false);
+    this.loginService.fecharMenu(false);
   }
 
   validarUsuario(form) {
-    this.loginService.login(form.value).subscrible(retorno => {
-      let menu = retorno;
-      if (menu == "true") {
-        this.emitirMenu.emit(true);
-      }
-    }
-    )
+    this.loginService.login(form.value)
   }
 }
+

@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
   providers: [LoginComponent]
 })
 export class AppComponent implements OnInit {
-  constructor(private login: LoginComponent) { }
+  constructor(private login: LoginService) { }
 
   title = 'app'; 
 
