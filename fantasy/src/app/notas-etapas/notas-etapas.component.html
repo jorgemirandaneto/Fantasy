@@ -1,29 +1,24 @@
+<div>
+  <label>Etapas: </label>
+  <select (change)='popularTableNota($event)' class="form-control" style="width:250px">
+    <option *ngFor="let etapa of etapas" [value]='etapa.id'>{{etapa.nome}}</option>
+  </select>
+</div>
+<br>
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Nota</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of etapaParticipante; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{e.participantes[0].nome}}</td>
+      <td>{{e.nota}}</td>
+    </tr>
+  </tbody>
+</table>

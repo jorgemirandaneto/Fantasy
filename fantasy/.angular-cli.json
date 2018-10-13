@@ -29,7 +29,8 @@
         "../node_modules/datatables.net/js/jquery.dataTables.js",
         "../src/assets/vendor/datatables/datatables.bootstrap4.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "../node_modules/datatables.net-responsive/js/dataTables.responsive.js"        
+        "../node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js"        
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

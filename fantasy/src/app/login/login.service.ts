@@ -1,39 +1,35 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Injectable, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '../../../node_modules/@angular/router'
-import { Usuario } from './../Models/Usuario';
-import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class LoginService {
 
   constructor(private router: Router, private http: HttpClient) { }
-  err: string  = '';
+  err: string = '';
   emitirMenu = new EventEmitter<boolean>();
-  url = "http://localhost:5000/api/Login/"
+  url = "http://localhost:50929/api/Login/"
 
-  login(form){
+  login(form) {
     let nometeste = form.nome;
     let senhateste = form.senha;
-    this.http.post(this.url + "login", {"nome": nometeste,"senha": senhateste},
-    ).subscribe(response => {
+    this.http.post(this.url + "login", { "nome": nometeste, "senha": senhateste }).subscribe(response => {
       let token = (<any>response).token;
-      localStorage.setItem("jwt", token);      
-      this.router.navigate(['dashboard']);
       this.emitirMenu.emit(true);
-    },err => {
+      localStorage.setItem("jwt", token);
+      this.router.navigate(['dashboard']);      
+    }, err => {
       console.log(err);
       this.emitirMenu.emit(false);
-    }    
-  )
+    }
+    )
   }
 
-  fecharMenu(menu){
-    this.emitirMenu.emit(false);
+  fecharMenu(status) {
+    this.emitirMenu.emit(status);
     this.logOut();
   }
 
   logOut() {
     localStorage.removeItem("jwt");
- }
+  }
 }
