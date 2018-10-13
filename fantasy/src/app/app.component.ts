@@ -12,14 +12,28 @@ import { LoginComponent } from './login/login.component';
 export class AppComponent implements OnInit {
   constructor(private login: LoginService) { }
 
-  title = 'app'; 
+  title = 'app';
 
   validarMenu = false;
 
-  ngOnInit(){
+  ngOnInit() {
+    this.loginMostrarMenu();
+    this.mostraMenu()    
+  }
+
+  mostraMenu() {
+    if (localStorage.getItem('jwt').length > 0) {
+      this.validarMenu = true;     
+    }
+  }
+
+  loginMostrarMenu(){
     this.login.emitirMenu.subscribe(
       mostrar => this.validarMenu = mostrar,
       console.log(this.validarMenu))
+  }
 
+  logout(){
+    this.login.logOut();
   }
 }

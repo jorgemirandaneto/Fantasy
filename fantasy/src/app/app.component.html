@@ -7,17 +7,16 @@
     <a class="navbar-brand" href="#">Surfriends</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="/NotasEtapas">Notas por etapa<span class="sr-only">(current)</span></a>
+      </li>    
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Login" (click)="logout()">Logout<span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" routerLink="/Participante">Participantes<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Notas">Notas</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/TabelaGeral">Tabela Geral</a>
-      </li> -->
     </ul>
   </div>
 </nav>

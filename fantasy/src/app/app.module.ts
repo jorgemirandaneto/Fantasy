@@ -21,6 +21,8 @@ import { AuthGuard } from './AuthGuard';
 import { JwtHelper } from '../../node_modules/angular2-jwt';
 import { NotasEtapasComponent } from './notas-etapas/notas-etapas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
+
 
 
 @NgModule({
@@ -32,10 +34,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     TabelaGeralComponent,
     LoginComponent,
     NotasEtapasComponent,
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule,
+BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AlertModule.forRoot(),
@@ -43,6 +45,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpModule,
     HttpClientModule,
     DataTablesModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.wanderingCubes,
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
@@ -54,6 +59,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
   providers: [LoginService,AuthGuard,JwtHelper],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [BsDropdownModule, TooltipModule, ModalModule]
+
 })
 export class AppModule { }
