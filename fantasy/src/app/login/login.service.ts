@@ -20,6 +20,7 @@ export class LoginService {
     }, err => {
       console.log(err);
       this.emitirMenu.emit(false);
+      alert("Login ou senha não confere")
     }
     )
   }

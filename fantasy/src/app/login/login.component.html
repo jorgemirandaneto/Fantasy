@@ -8,20 +8,20 @@
                             <h3 class="mb-0">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form #f="ngForm" (ngSubmit)="validarUsuario(f)">
+                            <form #f="ngForm" (ngSubmit)="f.form.valid && validarUsuario(f)" novalidate>
                                 <div class="form-group" style="width: 100%">
                                     <input type="text" class="form-control" id="nome" placeholder="nome" name="nome" [(ngModel)]="usuario.nome" required
                                       #nome="ngModel">
                                   </div>
-                                  <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
-                                    Preencha o nome do participante!
+                                  <div *ngIf="f.submitted && !nome.valid" class="alert alert-danger" role="alert">
+                                    <div *ngIf="nome.errors.required">Preencha o nome!</div> 
                                   </div>
                                   <div class="form-group" style="width: 100%">
-                                    <input type="text" class="form-control" id="senha" placeholder="senha" name="senha" [(ngModel)]="usuario.senha" required
+                                    <input type="password" class="form-control" id="senha" placeholder="senha" name="senha" [(ngModel)]="usuario.senha" required
                                       #senha="ngModel">
                                   </div>
-                                  <div *ngIf="!senha.valid && senha.touched" class="alert alert-danger" role="alert">
-                                    Preencha o nome do participante!
+                                  <div *ngIf="f.submitted && !senha.valid" class="alert alert-danger" role="alert">
+                                    Preencha a senha!
                                   </div>
                                   <button type="submit" class="btn btn-success">logar</button>
                             </form>

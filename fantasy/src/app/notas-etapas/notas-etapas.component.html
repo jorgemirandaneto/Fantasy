@@ -1,16 +1,11 @@
-<div>
-  <label>Etapas: </label>
-  <select (change)='popularTableNota($event)' class="form-control" style="width:250px">
-    <option *ngFor="let etapa of etapas" [value]='etapa.id'>{{etapa.nome}}</option>
-  </select>
-</div>
+<dropdownlist-etapas (idEtapa)="popularTableNota($event)"></dropdownlist-etapas>
 <br>
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nome</th>
-      <th scope="col">Nota</th>
+      <th scope="col">Pontuação</th>
 
     </tr>
   </thead>
@@ -22,3 +17,4 @@
     </tr>
   </tbody>
 </table>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>

@@ -1,0 +1,6 @@
+<div>
+  <label>Etapas: </label>
+  <select (change)='GetId($event)' class="form-control" style="width:250px">
+    <option *ngFor="let etapa of etapas" [value]='etapa.id'>{{etapa.nome}}</option>
+  </select>
+</div>
