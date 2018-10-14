@@ -14,28 +14,22 @@ export class NotasEtapasComponent implements OnInit {
   constructor(private service:ServiceNotasEtapasService) { }
   etapaParticipante : EtapaParticipante[] = []; 
   etapas: Etapas[] = [];
+  public loading = false;
 
   ngOnInit() {
-    this.getEtapas();
     this.getEtapaParticipante(1);
   }
 
   getEtapaParticipante(id:number){
+    this.loading = true;
     this.service.getEtapaParticipante(id).subscribe(
-      e => {this.etapaParticipante = e},      
-    )
+      e => {this.etapaParticipante = e, this.loading = false},    
+    )  
   }
 
-
-  getEtapas(){
-    this.service.getEtapas().subscribe(
-      etapa => {this.etapas = etapa},      
-    )
-  }
-
-  popularTableNota(event){
+  popularTableNota(event){   
     this.etapaParticipante = [];
-    let id = event.target.value;
+    let id = event.value;
     this.getEtapaParticipante(parseInt(id));
   }
 }

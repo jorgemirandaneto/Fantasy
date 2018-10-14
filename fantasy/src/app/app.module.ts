@@ -22,6 +22,8 @@ import { JwtHelper } from '../../node_modules/angular2-jwt';
 import { NotasEtapasComponent } from './notas-etapas/notas-etapas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
+import { DropdownlistEtapasComponent } from './dropdownlist-etapas/dropdownlist-etapas.component';
+import { ServiceDdlEtapasService } from './dropdownlist-etapas/service-ddl-etapas.service';
 
 
 
@@ -34,7 +36,8 @@ import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
     TabelaGeralComponent,
     LoginComponent,
     NotasEtapasComponent,
-    DashboardComponent
+    DashboardComponent,
+    DropdownlistEtapasComponent
   ],
   imports: [
 BrowserModule,
@@ -58,7 +61,7 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper],
+  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule]
 

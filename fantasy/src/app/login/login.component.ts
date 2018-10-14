@@ -1,6 +1,6 @@
 import { Usuario } from './../Models/Usuario';
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { first } from '../../../node_modules/rxjs/operators';

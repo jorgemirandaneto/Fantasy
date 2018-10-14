@@ -10,6 +10,7 @@ import { ParticipantesComponent } from './participantes/participantes.component'
 import { AuthGuard } from './AuthGuard';
 import { JwtHelper } from '../../node_modules/angular2-jwt';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DropdownlistEtapasComponent } from './dropdownlist-etapas/dropdownlist-etapas.component';
 
 const routes: Routes = [
   { path: 'dashboard', component:  DashboardComponent,canActivate: [AuthGuard]},
