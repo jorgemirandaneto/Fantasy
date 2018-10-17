@@ -1,11 +1,10 @@
+import { CadastroPontuacaoComponent } from './cadastro-pontuacao/cadastro-pontuacao.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NotasComponent } from './notas/notas.component';
 import { ParticipantesComponent } from './participantes/participantes.component';
-import { TabelaGeralComponent } from './tabela-geral/tabela-geral.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
@@ -27,17 +26,18 @@ import { ServiceDdlEtapasService } from './dropdownlist-etapas/service-ddl-etapa
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    NotasComponent,
     ParticipantesComponent,
     TabelaParticipatesComponent,
-    TabelaGeralComponent,
     LoginComponent,
     NotasEtapasComponent,
     DashboardComponent,
-    DropdownlistEtapasComponent
+    DropdownlistEtapasComponent,
+    CadastroPontuacaoComponent
   ],
   imports: [
 BrowserModule,
