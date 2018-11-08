@@ -10,6 +10,7 @@ export class CadastroPontuacaoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
