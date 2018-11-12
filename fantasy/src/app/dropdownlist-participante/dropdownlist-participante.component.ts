@@ -1,4 +1,6 @@
+import { DropdownlistParticipanteService } from './dropdownlist-participante.service';
 import { Component, OnInit } from '@angular/core';
+import { Participante } from '../Models/Participante';
 
 @Component({
   selector: 'app-dropdownlist-participante',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownlistParticipanteComponent implements OnInit {
 
-  constructor() { }
+  participante: Participante[] = [];
+  constructor(private service: DropdownlistParticipanteService) { }
 
   ngOnInit() {
+    this.getParticipantes();
   }
 
+  getParticipantes() {
+    this.service.getEtapas().subscribe(a => this.participante = a)
+  }
 }

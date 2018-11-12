@@ -1,3 +1,4 @@
+import { DropdownlistParticipanteService } from './dropdownlist-participante/dropdownlist-participante.service';
 import { CadastroPontuacaoComponent } from './cadastro-pontuacao/cadastro-pontuacao.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -64,7 +65,7 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService],
+  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,DropdownlistParticipanteService],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule]
 
