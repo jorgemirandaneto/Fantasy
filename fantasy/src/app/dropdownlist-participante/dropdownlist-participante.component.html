@@ -1,3 +1,6 @@
-<p>
-  dropdownlist-participante works!
-</p>
+<div class="col-auto my-1">     
+  <select (change)='GetId($event)'  style="width:250px" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+    <option selected>Participante...</option>
+    <option *ngFor="let p of participante" [value]="p.id">{{p.nome}}</option>    
+  </select>
+</div>
