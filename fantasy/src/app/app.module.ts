@@ -1,4 +1,3 @@
-import { DropdownlistParticipanteService } from './dropdownlist-participante/dropdownlist-participante.service';
 import { CadastroPontuacaoComponent } from './cadastro-pontuacao/cadastro-pontuacao.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +24,8 @@ import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
 import { DropdownlistEtapasComponent } from './dropdownlist-etapas/dropdownlist-etapas.component';
 import { ServiceDdlEtapasService } from './dropdownlist-etapas/service-ddl-etapas.service';
 import { CadastroPontuacaoService } from './cadastro-pontuacao/cadastro-pontuacao.service';
-import { DropdownlistParticipanteComponent } from './dropdownlist-participante/dropdownlist-participante.component';
+import {NgxMaskModule} from 'ngx-mask';
+
 
 
 
@@ -40,8 +40,7 @@ import { DropdownlistParticipanteComponent } from './dropdownlist-participante/d
     NotasEtapasComponent,
     DashboardComponent,
     DropdownlistEtapasComponent,
-    CadastroPontuacaoComponent,
-    DropdownlistParticipanteComponent
+    CadastroPontuacaoComponent
   ],
   imports: [
 BrowserModule,
@@ -55,6 +54,7 @@ BrowserModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    NgxMaskModule.forRoot(),
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.wanderingCubes,
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
@@ -65,7 +65,7 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,DropdownlistParticipanteService],
+  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule]
 
