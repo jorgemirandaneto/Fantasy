@@ -1,5 +1,5 @@
 import { ServiceDdlEtapasService } from './service-ddl-etapas.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Etapas } from '../Models/Etapas';
 
 @Component({
@@ -11,6 +11,9 @@ export class DropdownlistEtapasComponent implements OnInit {
   etapas: Etapas[] = [];
   idEvento: number;
   @Output() idEtapa = new EventEmitter();
+  @Input() name;
+  @Input() ngModel;
+  @Input() required;
   constructor(private serviceEtapas:ServiceDdlEtapasService ) { }
 
   ngOnInit() {

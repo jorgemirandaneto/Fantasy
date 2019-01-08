@@ -17,13 +17,13 @@ export class AppComponent implements OnInit {
   validarMenu = false;
 
   ngOnInit() {
-    this.loginMostrarMenu();
-    this.mostraMenu()    
+    this.loginMostrarMenu();     
+    this.mostraMenu();
   }
-
   mostraMenu() {
-    if (localStorage.getItem('jwt').length > 0) {
+    if (localStorage.getItem('jwt') !== null) {
       this.validarMenu = true;     
+      console.log("ok")
     }
   }
 
@@ -35,5 +35,6 @@ export class AppComponent implements OnInit {
 
   logout(){
     this.login.logOut();
+    this.validarMenu = false;
   }
 }
