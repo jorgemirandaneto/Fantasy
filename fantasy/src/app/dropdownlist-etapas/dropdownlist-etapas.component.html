@@ -1,5 +1,5 @@
 <div>
-  <select (change)='GetId($event)' name="{{name}}" [(ngModel)]="ngModel" class="custom-select mr-sm-2" required="{{required}}" style="width:250px">
+  <select (change)='GetId($event)' class="custom-select mr-sm-2" style="width:250px">
     <option selected>Etapas</option>
     <option *ngFor="let etapa of etapas" [value]='etapa.id'>{{etapa.nome}}</option>
   </select>

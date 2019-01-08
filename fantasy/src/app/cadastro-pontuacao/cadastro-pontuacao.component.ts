@@ -1,3 +1,4 @@
+import { AlertService } from 'ngx-alerts';
 import { CadastroPontuacaoService } from './cadastro-pontuacao.service';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
@@ -16,7 +17,7 @@ export class CadastroPontuacaoComponent implements OnInit {
  etapa: Etapas[] =[];
   formNota : FormGroup;
 
-  constructor(private service: CadastroPontuacaoService) { }
+  constructor(private service: CadastroPontuacaoService, private alert: AlertService) { }
 
   ngOnInit() {
     this.getParticipantes();
@@ -33,7 +34,8 @@ export class CadastroPontuacaoComponent implements OnInit {
   }
 
   SalvarNota(f){
-    console.log(f);
+    this.service.addNota(f.value)
+    .then(res => console.log(res))
+    .catch(res => this.alert.warning(res));
   }
-
 }

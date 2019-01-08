@@ -11,8 +11,7 @@ const token = localStorage.getItem("jwt");
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    "Authorization": "Bearer " + this.token,
+    'Content-Type': 'application/json'
   })
 };
 
@@ -23,16 +22,16 @@ export class CadastroPontuacaoService {
   constructor(private http: HttpClient) { }
 
 
-  addNota(etapaParticipante: EtapaParticipante): Observable<EtapaParticipante> {
-    return this.http.post<EtapaParticipante>(this.url + "EtapaParticipante", etapaParticipante, httpOptions).pipe(
-      tap((etapaParticipante: EtapaParticipante) => this.log(`added participante id=${etapaParticipante}`)),
-      catchError(this.handleError('addParticipante', etapaParticipante))
-    );
+  addNota(etapaParticipante: EtapaParticipante): Promise<EtapaParticipante> {
+    return this.http.post<EtapaParticipante>(this.url + "EtapaParticipante/SalvarNota", etapaParticipante, httpOptions)
+      .toPromise()
+      .then(res => { return res })
+      .catch(erro => { return erro })
   }
 
   getParticipantes(): Observable<Participante[]> {
     const url = `${this.url + "Participantes"}`;
-    return this.http.get<Participante[]>(url,{
+    return this.http.get<Participante[]>(url, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -43,7 +42,7 @@ export class CadastroPontuacaoService {
     )
   }
 
-  getEtapas(): Observable < Etapas[] > {
+  getEtapas(): Observable<Etapas[]> {
     const url = `${this.url + 'EtapaParticipante/Etapa'}`;
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
@@ -55,7 +54,6 @@ export class CadastroPontuacaoService {
       catchError(this.handleError('getEtapas', []))
     )
   }
-
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
