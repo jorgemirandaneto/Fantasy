@@ -13,7 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'dashboard', component:  DashboardComponent,canActivate: [AuthGuard]},
-  { path: 'NotasEtapas', component:  NotasEtapasComponent,canActivate: [AuthGuard]},
+  { path: 'NotasEtapas', component:  NotasEtapasComponent},
   { path: 'createParticipante', component:  ParticipantesComponent,canActivate: [AuthGuard]},
   {path:'TabelaParticipantes',component:TabelaParticipatesComponent,canActivate: [AuthGuard] },
   { path: 'editParticipante/:id', component: ParticipantesComponent,canActivate:[AuthGuard] },

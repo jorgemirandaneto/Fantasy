@@ -13,13 +13,13 @@ export class ServiceDdlEtapasService {
     "Authorization": "Bearer " + this.token,
     "Content-Type": "application/json"
   });
-  private url = 'http://localhost:50929/api/EtapaParticipante/';
+  private url = 'http://localhost:5000/api/Etapa/';
   constructor(private http: HttpClient) {
 }
 
 
 getEtapas(): Observable < Etapas[] > {
-  const url = `${this.url + 'Etapa'}`;
+  const url = `${this.url + 'etapas'}`;
   return this.http.get<Etapas[]>(url, {
     headers: new HttpHeaders({
       "Authorization": "Bearer " + this.token,

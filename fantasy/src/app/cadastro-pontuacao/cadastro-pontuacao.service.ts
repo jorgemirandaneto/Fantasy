@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Participante } from '../Models/Participante';
 import { Etapas } from '../Models/Etapas';
+import {  AlertService } from 'ngx-alerts';
 
 const token = localStorage.getItem("jwt");
 
@@ -18,15 +19,15 @@ const httpOptions = {
 @Injectable()
 export class CadastroPontuacaoService {
 
-  private url = 'http://localhost:50929/api/';
-  constructor(private http: HttpClient) { }
+  private url = 'http://localhost:5000/api/';
+  constructor(private http: HttpClient,private alert :AlertService) { }
 
 
   addNota(etapaParticipante: EtapaParticipante): Promise<EtapaParticipante> {
-    return this.http.post<EtapaParticipante>(this.url + "EtapaParticipante/SalvarNota", etapaParticipante, httpOptions)
+    return this.http.post<EtapaParticipante>(this.url + "Etapa/SalvarNota", etapaParticipante, httpOptions)
       .toPromise()
       .then(res => { return res })
-      .catch(erro => { return erro })
+      .catch(erro => {return erro} )
   }
 
   getParticipantes(): Observable<Participante[]> {
@@ -43,7 +44,7 @@ export class CadastroPontuacaoService {
   }
 
   getEtapas(): Observable<Etapas[]> {
-    const url = `${this.url + 'EtapaParticipante/Etapa'}`;
+    const url = `${this.url + 'Etapa/etapas'}`;
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
