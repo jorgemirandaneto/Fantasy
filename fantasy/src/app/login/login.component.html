@@ -2,29 +2,33 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <div class="card rounded-0">
-                        <div class="card-header">
-                            <h3 class="mb-0">Login</h3>
+                <div class="col-md-4 mx-auto" style="margin-top: 10%;">
+                    <div>
+                        <div>
+                            <img class="imgheaderLogin"
+                                src="../assets/img/kisspng-computer-icons-login-icon-design-5b2c21206296c8.1035883515296187204038.png"
+                                alt="Card image cap">
                         </div>
-                        <div class="card-body">
+                        <div>
                             <form #f="ngForm" (ngSubmit)="f.form.valid && validarUsuario(f)" novalidate>
                                 <div class="form-group" style="width: 100%">
-                                    <input type="text" class="form-control" id="nome" placeholder="nome" name="nome" [(ngModel)]="usuario.nome" required
-                                      #nome="ngModel">
-                                  </div>
-                                  <div *ngIf="f.submitted && !nome.valid" class="alert alert-danger" role="alert">
-                                    <div *ngIf="nome.errors.required">Preencha o nome!</div> 
-                                  </div>
-                                  <div class="form-group" style="width: 100%">
-                                    <input type="password" class="form-control" id="senha" placeholder="senha" name="senha" [(ngModel)]="usuario.senha" required
-                                      #senha="ngModel">
-                                  </div>
-                                  <div *ngIf="f.submitted && !senha.valid" class="alert alert-danger" role="alert">
+                                    <input type="text" class="form-control" id="nome" placeholder="nome" name="nome"
+                                        [(ngModel)]="usuario.nome" required #nome="ngModel">
+                                </div>
+                                <div *ngIf="f.submitted && !nome.valid" class="alert alert-danger" role="alert">
+                                    <div *ngIf="nome.errors.required">Preencha o nome!</div>
+                                </div>
+                                <div class="form-group" style="width: 100%">
+                                    <input type="password" class="form-control" id="senha" placeholder="senha"
+                                        name="senha" [(ngModel)]="usuario.senha" required #senha="ngModel">
+                                </div>
+                                <div *ngIf="f.submitted && !senha.valid" class="alert alert-danger" role="alert">
                                     Preencha a senha!
-                                  </div>
-                                  <button type="submit" class="btn btn-success">logar</button>
+                                </div>
+                                <button type="submit" class="btn btn btn-sm btn-block btn-login">LOGIN</button>
                             </form>
+
+                            <hr style="margin-top:25%">
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,7 @@ export class CadastroPontuacaoComponent implements OnInit {
   constructor(private service: CadastroPontuacaoService, private alert: AlertService) { }
 
   ngOnInit() {
+    this.formNota.reset();
     this.getParticipantes();
     this.getEtapas();
   }
