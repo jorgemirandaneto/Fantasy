@@ -25,6 +25,7 @@ import { DropdownlistEtapasComponent } from './dropdownlist-etapas/dropdownlist-
 import { ServiceDdlEtapasService } from './dropdownlist-etapas/service-ddl-etapas.service';
 import { CadastroPontuacaoService } from './cadastro-pontuacao/cadastro-pontuacao.service';
 import {NgxMaskModule} from 'ngx-mask';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -65,7 +66,7 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService],
+  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,CookieService],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule]
 

@@ -3,34 +3,50 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4 mx-auto" style="margin-top: 10%;">
-                    <div>
-                        <div>
-                            <img class="imgheaderLogin"
-                                src="../assets/img/kisspng-computer-icons-login-icon-design-5b2c21206296c8.1035883515296187204038.png"
-                                alt="Card image cap">
-                        </div>
-                        <div>
+                    <div class="card bg-light mb-3" style="width: 110%">
+                        <div class="card-body">
+                            <div>
+                                <img class="imgheaderLogin" src="../assets/img/person-1824144_640.png"
+                                    alt="Card image cap">
+                            </div>
+                            <div style="margin-top:5%;margin-bottom: 5%;">
+                                <h5 class="card-title" style="color:rgb(0, 0, 0);">Entre com sua conta</h5>
+                            </div>
+
                             <form #f="ngForm" (ngSubmit)="f.form.valid && validarUsuario(f)" novalidate>
-                                <div class="form-group" style="width: 100%">
+                                <div class="input-group mb-3" style="width: 100%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background-color:white;">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                    </div>
                                     <input type="text" class="form-control" id="nome" placeholder="nome" name="nome"
                                         [(ngModel)]="usuario.nome" required #nome="ngModel">
                                 </div>
                                 <div *ngIf="f.submitted && !nome.valid" class="alert alert-danger" role="alert">
                                     <div *ngIf="nome.errors.required">Preencha o nome!</div>
                                 </div>
-                                <div class="form-group" style="width: 100%">
+                                <div class="input-group mb-3" style="width: 100%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background-color:white;">
+                                            <span class="glyphicon glyphicon-lock"></span>
+                                        </span>
+                                    </div>
                                     <input type="password" class="form-control" id="senha" placeholder="senha"
                                         name="senha" [(ngModel)]="usuario.senha" required #senha="ngModel">
                                 </div>
                                 <div *ngIf="f.submitted && !senha.valid" class="alert alert-danger" role="alert">
                                     Preencha a senha!
                                 </div>
-                                <button type="submit" class="btn btn btn-sm btn-block btn-login">LOGIN</button>
+                                <div class="form-check div-check">
+                                    <input type="checkbox" class="form-check-input" id="Check" name="Check" [(ngModel)]="chk" #Check="ngModel" value="true" checked="{{chkRemenber}}">
+                                    <label class="form-check-label chk-label" for="Check">Lembrar-me</label>
+                                </div>
+                                <button type="submit" class="btn btn btn-lg btn-block btn-login">LOGIN</button>
                             </form>
-
-                            <hr style="margin-top:25%">
                         </div>
                     </div>
+                    <hr style="margin-top:25%">
                 </div>
             </div>
         </div>

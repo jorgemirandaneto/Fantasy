@@ -1,24 +1,29 @@
 .imgheaderLogin{
     height: 60px;
-    width: 80px;
+    width: 66px;
     margin-left: 40%;
-    margin-bottom: 10%;
-}
-#body{
-    background-image: linear-gradient(to bottom right, blue, gray);
+    margin-bottom: 2%;
 }
 
 .btn-login{
     background-color:#87CEEB;
-    color: white;    
+    color: white; 
+    margin-bottom: 13%;   
 }
 
-.login-page {
-    height: 100%;
-      background-repeat: no-repeat;
-      background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+.chk{
+    align-content:flex-end !important;
+}
+.chk-label{
+    margin-left:5%;
+    margin-top:1%;
 }
 
-html{
-    background-color: blue !important;
+.div-check{
+    align-content:flex-end;
+    margin-top:1%;
+    margin-bottom: 5%;
 }
+
+
+
