@@ -1,6 +1,12 @@
-<div style="padding-top: 15px">
-  <dropdownlist-etapas (idEtapa)="popularTableNota($event)"></dropdownlist-etapas>
+<div class="row">
+  <div class="col-md-4" style="padding-top: 15px">
+    <dropdownlist-etapas (idEtapa)="popularTableNota($event)"></dropdownlist-etapas>
+  </div>
+  <div class="col-md-4" style="padding-top: 15px">
+    <app-cadastro-pontuacao></app-cadastro-pontuacao>
+  </div>
 </div>
+
 <br>
 <table class="table table-hover">
   <thead>

@@ -68,7 +68,7 @@ BrowserModule,
   ],
   providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,CookieService],
   bootstrap: [AppComponent],
-  exports: [BsDropdownModule, TooltipModule, ModalModule]
+  exports: [BsDropdownModule, TooltipModule, ModalModule,CadastroPontuacaoComponent]
 
 })
 export class AppModule { }
