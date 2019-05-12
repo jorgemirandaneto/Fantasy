@@ -1,12 +1,11 @@
 import { ServiceService } from './../service.service';
 import { Participante } from './../Models/Participantes';
-import { AlertModule } from 'ngx-bootstrap';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { AlertService } from 'ngx-alerts';
-import { timeout } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-participantes',

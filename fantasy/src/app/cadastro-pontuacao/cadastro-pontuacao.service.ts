@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Participante } from '../Models/Participante';
 import { Etapas } from '../Models/Etapas';
-import {  AlertService } from 'ngx-alerts';
+import {  AlertService, Alert } from 'ngx-alerts';
 
 const token = localStorage.getItem("jwt");
 
@@ -23,50 +23,34 @@ export class CadastroPontuacaoService {
   constructor(private http: HttpClient,private alert :AlertService) { }
 
 
-  addNota(etapaParticipante: EtapaParticipante): Promise<EtapaParticipante> {
+ addNota(etapaParticipante: EtapaParticipante): Promise<any>{
     return this.http.post<EtapaParticipante>(this.url + "Etapa/SalvarNota", etapaParticipante, httpOptions)
       .toPromise()
-      .then(res => { return res })
-      .catch(erro => {return erro} )
+      .then(res => { return this.alert.success('Sucesso ao gravar nota!') })
+      .catch(erro => {return this.alert.danger(erro.error)})
   }
 
-  getParticipantes(): Observable<Participante[]> {
+  getParticipantes(): Promise<Participante[]> {
     const url = `${this.url + "Participantes"}`;
     return this.http.get<Participante[]>(url, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
-    }).pipe(
-      tap(heroes => this.log(`participante Listado`)),
-      catchError(this.handleError('participante', []))
-    )
+    }).toPromise()
+    .then(heroes => {return heroes})
+    .catch(x => {return x})    
   }
 
-  getEtapas(): Observable<Etapas[]> {
+  getEtapas(): Promise<Etapas[]> {
     const url = `${this.url + 'Etapa/etapas'}`;
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
-    }).pipe(
-      tap(heroes => this.log(`Etapa Listado`)),
-      catchError(this.handleError('getEtapas', []))
-    )
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error);
-
-      this.log(`${operation} failed: ${error.message}`);
-
-      return of(result as T);
-    };
-  }
-  private log(message: string) {
-    console.log(message);
+    }).toPromise()
+    .then(heroes => {return heroes})
+    .catch(x => {return x})    
   }
 }

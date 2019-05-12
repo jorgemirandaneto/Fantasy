@@ -18,6 +18,7 @@ export class LoginService {
       this.emitirMenu.emit(true);
       localStorage.setItem("jwt", token);
       this.router.navigate(['dashboard']);
+      this.alert.success('Seja bem-vindo!')
     }, err => {
       console.log(err);
       this.emitirMenu.emit(false);

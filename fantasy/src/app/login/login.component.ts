@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
     this.loginService.fecharMenu(false);
     this.usuario.nome = this.cookie.get('nome');
     this.chkRemenber = this.cookie.get('chk') == "true" ? "checked" : "false";
-    console.log(this.cookie.get('nome')+this.cookie.get('senha')+this.cookie.get('chk'))
+    console.log(this.formLogin)
   }
 
   validarUsuario(form) {
-    if(form.value.Check.toString() == "true"){
+    if(form.value.Check == true){
       this.cookie.set('nome', form.value.nome,30);
       this.cookie.set('chk', form.value.Check == true ? "true" : "false");
     }
