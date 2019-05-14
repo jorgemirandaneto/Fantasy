@@ -1,36 +1,40 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Cadastro de notas
-  </button>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+</button>
+<div class="modal fade" style="width: 110%" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="width: 60%">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cadastro de notas.</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form #f="ngForm" (ngSubmit)="SalvarNota(f)">
+                <form novalidate #f="ngForm" (ngSubmit)="f.form.valid && SalvarNota(f);">
                     <div class="form-group">
-                        <select style="width:250px" class="custom-select mr-sm-2" name="fk_participante"
-                            [(ngModel)]="notaParticipante.fk_participante" required #fk_participante="ngModel">
+                        <select style="width:250px" class="custom-select mr-sm-2" name="fk_participante" [(ngModel)]="notaParticipante.fk_participante" required #fk_participante="ngModel">
                             <option selected>Participante...</option>
                             <option *ngFor="let p of participante" [value]='p.id'>{{p.nome}}</option>
                         </select>
+                        <div class="validadation-label" *ngIf="f.submitted && !fk_participante.valid">
+                            Preencha o participante.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <select class="custom-select mr-sm-2" style="width:250px" name="fk_etapa"
-                            [(ngModel)]="notaParticipante.fk_etapa" required #fk_etapa="ngModel">
+                        <select class="custom-select mr-sm-2" style="width:250px" name="fk_etapa" [(ngModel)]="notaParticipante.fk_etapa" required #fk_etapa="ngModel">
                             <option selected>Etapas...</option>
                             <option *ngFor="let etapa of etapa" [value]='etapa.id'>{{etapa.nome}}</option>
                         </select>
+                        <div class="validadation-label" *ngIf="f.submitted && !fk_etapa.valid">
+                            Preencha a etapa.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="nota" [dropSpecialCharacters]="false"
-                            placeholder="Nota" mask="000.00" style="width:250px" [(ngModel)]="notaParticipante.nota"
-                            required #nota="ngModel" />
+                        <input type="text" class="form-control" name="nota" [dropSpecialCharacters]="false" placeholder="Nota" mask="000.00" style="width:250px; height: 27px;" [(ngModel)]="notaParticipante.nota" required #nota="ngModel" />
+                        <div class="validadation-label" *ngIf="f.submitted && !nota.valid">
+                            Preencha a nota.
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
@@ -38,7 +42,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 </div>

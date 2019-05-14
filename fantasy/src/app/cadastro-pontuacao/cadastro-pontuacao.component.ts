@@ -15,7 +15,7 @@ export class CadastroPontuacaoComponent implements OnInit {
  notaParticipante= new EtapaParticipanteNota();
  participante: Participante[] = [];
  etapa: Etapas[] =[];
-  formNota : FormGroup;
+  f : FormGroup;
 
   constructor(private service: CadastroPontuacaoService, private alert: AlertService) { }
 
@@ -37,7 +37,6 @@ export class CadastroPontuacaoComponent implements OnInit {
 
   SalvarNota(f){
     let result = this.service.addNota(f.value);
-    result.then( x => console.log(x))
-    
+    result.then( x => x ==='true' ? (this.alert.success('Nota Salva com sucesso') ,f.form.markAsPristine(),f.resetForm()) : this.alert.danger(x));
   }
 }
