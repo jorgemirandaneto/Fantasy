@@ -23,11 +23,11 @@ export class CadastroPontuacaoService {
   constructor(private http: HttpClient,private alert :AlertService) { }
 
 
- addNota(etapaParticipante: EtapaParticipante): Promise<any>{
-    return this.http.post<EtapaParticipante>(this.url + "Etapa/SalvarNota", etapaParticipante, httpOptions)
+ async addNota(etapaParticipante: EtapaParticipante): Promise<any>{
+     return await this.http.post<EtapaParticipante>(this.url + "Etapa/SalvarNota", etapaParticipante, httpOptions)
       .toPromise()
-      .then(res => { return this.alert.success('Sucesso ao gravar nota!') })
-      .catch(erro => {return this.alert.danger(erro.error)})
+      .then(res => { return 'true' })      
+      .catch(erro => {return erro.error})
   }
 
   getParticipantes(): Promise<Participante[]> {
