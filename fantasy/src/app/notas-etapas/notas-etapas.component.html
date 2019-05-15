@@ -1,28 +1,32 @@
 <div class="row">
-  <div class="col-md-4" style="padding-top: 15px">
-    <dropdownlist-etapas (idEtapa)="popularTableNota($event)"></dropdownlist-etapas>
-  </div>
-  <div class="col-md-4" style="padding-top: 15px">
-    <app-cadastro-pontuacao></app-cadastro-pontuacao>
-  </div>
+    <div class="col-md-4" style="padding-top: 15px">
+        <dropdownlist-etapas (idEtapa)="popularTableNota($event)"></dropdownlist-etapas>
+    </div>
+
+    <div class="col-md-4" style="padding-top: 15px">
+        <button type="button" class="btn btn-success" (click)="finalizarEtapa()">Finalizar Etapa</button>
+    </div>
 </div>
 
 <br>
 <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Pontuação</th>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Pontuação</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let e of etapaParticipante; let i = index">
-      <th scope="row">{{i+1}}</th>
-      <td>{{e.participantes[0].nome}}</td>
-      <td>{{e.nota}}</td>
-    </tr>
-  </tbody>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of etapaParticipante; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{e.participantes[0].nome}}</td>
+            <td>{{e.nota}}</td>
+        </tr>
+    </tbody>
 </table>
+<div class="col-md-4" style="padding-top: 15px">
+    <app-cadastro-pontuacao></app-cadastro-pontuacao>
+</div>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>

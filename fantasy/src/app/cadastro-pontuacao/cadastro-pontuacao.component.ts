@@ -14,12 +14,12 @@ import { Etapas } from '../Models/Etapas';
 export class CadastroPontuacaoComponent implements OnInit {
  notaParticipante= new EtapaParticipanteNota();
  participante: Participante[] = [];
- etapa: Etapas[] =[];
+ etapa: Etapas[] = [];
   f : FormGroup;
 
   constructor(private service: CadastroPontuacaoService, private alert: AlertService) { }
 
-  ngOnInit() {    
+  ngOnInit() {      
     this.getParticipantes();
     this.getEtapas();
   }
