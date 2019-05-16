@@ -38,7 +38,7 @@ export class NotasEtapasComponent implements OnInit {
 
   finalizarEtapa() {
     if (this.idEtapa > 0)
-      console.log(this.idEtapa)
+      this.service.FinalizarEtapa(this.idEtapa);
     else
       this.alert.danger('Selecione uma etapa para finalizar');
   }
