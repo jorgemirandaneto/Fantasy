@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators/tap';
 import { catchError } from 'rxjs/operators';
 import { EtapaParticipante } from '../Models/EtapaParticipante';
 import { Etapas } from '../Models/Etapas';
+import { AlertService } from 'ngx-alerts';
 
 @Injectable()
 export class ServiceNotasEtapasService {
@@ -15,7 +16,7 @@ export class ServiceNotasEtapasService {
     "Content-Type": "application/json"
   });
   private url = 'http://localhost:5000/api/Etapa/';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alert: AlertService) { }
 
 
   getEtapaParticipante(id: number): Observable<EtapaParticipante[]> {
@@ -43,6 +44,19 @@ export class ServiceNotasEtapasService {
       catchError(this.handleError('getEtapas', []))
     )
   }
+
+  
+ async FinalizarEtapa(idEtapa: number): Promise<any>{
+  return await this.http.post<EtapaParticipante>(this.url + "FinalizarEtapa/"+ idEtapa,{
+    headers: new HttpHeaders({
+      // "Authorization": "Bearer " + this.token,
+      "Content-Type": "application/json"
+    })
+  })
+   .toPromise()
+   .then(res => { return this.alert.success('Etapa finalizada com sucesso.') })      
+   .catch(erro => {return this.alert.danger(erro.error)})
+}
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
