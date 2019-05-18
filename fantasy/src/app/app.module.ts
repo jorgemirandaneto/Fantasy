@@ -26,6 +26,7 @@ import { ServiceDdlEtapasService } from './dropdownlist-etapas/service-ddl-etapa
 import { CadastroPontuacaoService } from './cadastro-pontuacao/cadastro-pontuacao.service';
 import {NgxMaskModule} from 'ngx-mask';
 import { CookieService } from 'ngx-cookie-service';
+import { DevedoresComponent } from './devedores/devedores.component';
 
 
 
@@ -41,7 +42,8 @@ import { CookieService } from 'ngx-cookie-service';
     NotasEtapasComponent,
     DashboardComponent,
     DropdownlistEtapasComponent,
-    CadastroPontuacaoComponent
+    CadastroPontuacaoComponent,
+    DevedoresComponent
   ],
   imports: [
 BrowserModule,
