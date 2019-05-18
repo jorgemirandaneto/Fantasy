@@ -17,7 +17,6 @@ export class NotasEtapasComponent implements OnInit {
   etapaParticipante: EtapaParticipante[] = [];
   etapas: Etapas[] = [];
   public loading = false;
-  formFinalizacao: FormGroup;
   idEtapa: number;
 
   ngOnInit() {

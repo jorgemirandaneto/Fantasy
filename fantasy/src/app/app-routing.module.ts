@@ -9,6 +9,7 @@ import { ParticipantesComponent } from './participantes/participantes.component'
 import { AuthGuard } from './AuthGuard';
 import { JwtHelper } from '../../node_modules/angular2-jwt';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DevedoresComponent } from './devedores/devedores.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'TabelaParticipantes',component:TabelaParticipatesComponent,canActivate: [AuthGuard] },
   { path: 'editParticipante/:id', component: ParticipantesComponent,canActivate:[AuthGuard] },
   {path:'CadastroPontuacao', component:CadastroPontuacaoComponent, canActivate:[AuthGuard]},
+  {path:'Devedores', component:DevedoresComponent, canActivate:[AuthGuard]},
   {path:'Login',component:LoginComponent},
   //rota pricipal
   { path: '', pathMatch: 'full', redirectTo: 'Login' }
