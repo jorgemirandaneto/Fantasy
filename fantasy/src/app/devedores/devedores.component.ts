@@ -1,4 +1,7 @@
+import { AlertService } from 'ngx-alerts';
 import { Component, OnInit } from '@angular/core';
+import { DevedoresService } from './devedores.service';
+import { Devedores } from '../Models/Devedores';
 
 @Component({
   selector: 'app-devedores',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevedoresComponent implements OnInit {
 
-  constructor() { }
+  devedores : Devedores[] = [];
+
+  constructor(private service: DevedoresService, private alert: AlertService) { }
 
   ngOnInit() {
   }
 
+  getDevores(page:number, qtdItempage:number){
+    this.service.getDevedores(page, qtdItempage)
+    .then(r => this.devedores = r)
+    .catch(err => {this.alert.danger("Erro ao listar os devedores")})  
+  }
 }
