@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { Participante } from '../Models/Participante';
 import { Etapas } from '../Models/Etapas';
 import {  AlertService, Alert } from 'ngx-alerts';
+import { environment } from '../../environments/environment';
 
 const token = localStorage.getItem("jwt");
 
@@ -19,7 +20,7 @@ const httpOptions = {
 @Injectable()
 export class CadastroPontuacaoService {
 
-  private url = 'http://localhost:5000/api/';
+  private url = environment.url;
   constructor(private http: HttpClient,private alert :AlertService) { }
 
 

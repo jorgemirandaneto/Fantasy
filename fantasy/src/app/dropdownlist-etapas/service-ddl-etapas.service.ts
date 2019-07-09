@@ -4,6 +4,7 @@ import { Etapas } from '../Models/Etapas';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ServiceDdlEtapasService {
@@ -13,16 +14,16 @@ export class ServiceDdlEtapasService {
     "Authorization": "Bearer " + this.token,
     "Content-Type": "application/json"
   });
-  private url = 'http://localhost:5000/api/Etapa/';
+  private url = environment.url;
   constructor(private http: HttpClient) {
 }
 
 
 getEtapas(): Observable < Etapas[] > {
-  const url = `${this.url + 'etapas'}`;
+  const url = `${this.url + 'Etapa/etapas'}`;
   return this.http.get<Etapas[]>(url, {
     headers: new HttpHeaders({
-      "Authorization": "Bearer " + this.token,
+      //"Authorization": "Bearer " + this.token,
       "Content-Type": "application/json"
     })
   }).pipe(
