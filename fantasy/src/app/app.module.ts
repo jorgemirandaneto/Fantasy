@@ -28,11 +28,6 @@ import {NgxMaskModule} from 'ngx-mask';
 import { CookieService } from 'ngx-cookie-service';
 import { DevedoresComponent } from './devedores/devedores.component';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
