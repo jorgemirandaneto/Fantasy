@@ -9,8 +9,7 @@ export class LoginService {
   constructor(private router: Router, private http: HttpClient, private alert: AlertService) { }
   err: string = '';
   emitirMenu = new EventEmitter<boolean>();
-  url = environment.url;//"http://localhost:5000/api/Login/login"
-
+  url = environment.url;
   login(form) {
     let nometeste = form.nome;
     let senhateste = form.senha;

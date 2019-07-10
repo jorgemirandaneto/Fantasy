@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 import { EtapaParticipante } from '../Models/EtapaParticipante';
 import { Etapas } from '../Models/Etapas';
 import { AlertService } from 'ngx-alerts';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ServiceNotasEtapasService {
@@ -15,12 +16,12 @@ export class ServiceNotasEtapasService {
     "Authorization": "Bearer " + this.token,
     "Content-Type": "application/json"
   });
-  private url = 'http://localhost:5000/api/Etapa/';
+  private url = environment.url;
   constructor(private http: HttpClient, private alert: AlertService) { }
 
 
   getEtapaParticipante(id: number): Observable<EtapaParticipante[]> {
-    const url = `${this.url + 'NotasEtapas/'}${id}`;
+    const url = `${this.url + 'Etapa/NotasEtapas/'}${id}`;
     return this.http.get<EtapaParticipante[]>(url, {
       headers: new HttpHeaders({
         // "Authorization": "Bearer " + this.token,
@@ -33,7 +34,7 @@ export class ServiceNotasEtapasService {
   }
 
   getEtapas(): Observable<Etapas[]> {
-    const url = `${this.url + 'etapas'}`;
+    const url = `${this.url + 'Etapa/etapas'}`;
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
         // "Authorization": "Bearer " + this.token,
@@ -47,7 +48,7 @@ export class ServiceNotasEtapasService {
 
   
  async FinalizarEtapa(idEtapa: number): Promise<any>{
-  return await this.http.post<EtapaParticipante>(this.url + "FinalizarEtapa/"+ idEtapa,{
+  return await this.http.post<EtapaParticipante>(this.url + "Etapa/FinalizarEtapa/"+ idEtapa,{
     headers: new HttpHeaders({
       // "Authorization": "Bearer " + this.token,
       "Content-Type": "application/json"

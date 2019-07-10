@@ -26,7 +26,7 @@ export class NotasEtapasComponent implements OnInit {
   getEtapaParticipante(id: number) {
     this.loading = true;
     this.service.getEtapaParticipante(id).subscribe(
-      e => { this.etapaParticipante = e, this.loading = false, console.log(e) },
+      e => { this.etapaParticipante = e, this.loading = false },
     )
   }
 
