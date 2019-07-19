@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:'Devedores', component:DevedoresComponent, canActivate:[AuthGuard]},
   {path:'Login',component:LoginComponent},
   //rota pricipal
+  { path: 'Login', pathMatch: 'full', redirectTo: 'Login' },
   { path: '', pathMatch: 'full', redirectTo: 'Login' }
 ];
 
