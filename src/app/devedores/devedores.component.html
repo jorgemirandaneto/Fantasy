@@ -9,17 +9,18 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Participante Ganhador</th>
+            <th scope="col">Participante Perdedor</th>
+            <th scope="col">Etapa</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tr  *ngFor="let d of devedoresRoot.devedores; let i = index">
+            <th scope="row"></th>
+            <td>{{d.participante_ganhador.nome}}</td>
+            <td>{{d.participante_perdedor.nome}}</td>
+            <td>etapa.nome</td>
+            <td><button type="button" [ngClass]="(d.pago == 'F') ? 'btn btn-danger' : 'btn btn-success'" [disabled]="d.pago == 'T' ? true : false">{{d.pago == 'F' ? 'Pagar' : 'Pago'}}</button></td>
         </tr>
 
     </tbody>

@@ -27,6 +27,7 @@ import { CadastroPontuacaoService } from './cadastro-pontuacao/cadastro-pontuaca
 import {NgxMaskModule} from 'ngx-mask';
 import { CookieService } from 'ngx-cookie-service';
 import { DevedoresComponent } from './devedores/devedores.component';
+import { DevedoresService } from './devedores/devedores.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,CookieService],
+  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,CookieService,DevedoresService],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule,CadastroPontuacaoComponent]
 
