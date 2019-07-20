@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Devedores } from '../Models/Devedores';
 import { environment } from '../../environments/environment';
+import { RootDevedores } from '../Models/RootDevedores';
 
 @Injectable()
 export class DevedoresService {
@@ -10,10 +11,10 @@ export class DevedoresService {
 
   url = environment.url;
 
-  getDevedores(page: number, qtdItempage:number): Promise<Devedores[]>{
-    return this.http.get(`${this.url}/Etapa/Devedores/${page}/${qtdItempage}`)
+  getDevedores(page: number, qtdItempage:number): Promise<RootDevedores[]>{
+    return this.http.get(`${this.url}Devedores/list/${page}/${qtdItempage}`)
     .toPromise()
-    .then(x => {return x})
+    .then(res => {return res})
     .catch(err => {return err})
   }
 }

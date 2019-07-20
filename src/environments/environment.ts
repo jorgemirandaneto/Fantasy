@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  url: 'https://fantasy-server.herokuapp.com/api/'
+  // url: 'https://fantasy-server.herokuapp.com/api/',
+  url:'http://localhost:5000/api/'
 };
