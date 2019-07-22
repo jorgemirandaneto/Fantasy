@@ -25,4 +25,8 @@ export class DevedoresComponent implements OnInit {
     .catch(err => {this.alert.danger("Erro ao listar os devedores")})    
   }
 
+  getQtdItens(event){
+    this.getDevores(1, event.target.value)
+  }
+
 }
