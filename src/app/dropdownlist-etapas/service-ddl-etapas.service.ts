@@ -9,10 +9,10 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ServiceDdlEtapasService {
 
-  token = localStorage.getItem("jwt");
+  token = localStorage.getItem('jwt');
   private headers = new HttpHeaders({
-    "Authorization": "Bearer " + this.token,
-    "Content-Type": "application/json"
+     'Authorization': 'Bearer ' + this.token,
+    'Content-Type': 'application/json'
   });
   private url = environment.url;
   constructor(private http: HttpClient) {
@@ -23,13 +23,13 @@ getEtapas(): Observable < Etapas[] > {
   const url = `${this.url + 'Etapa/etapas'}`;
   return this.http.get<Etapas[]>(url, {
     headers: new HttpHeaders({
-      //"Authorization": "Bearer " + this.token,
-      "Content-Type": "application/json"
+      // "Authorization": "Bearer " + this.token,
+      'Content-Type': 'application/json'
     })
   }).pipe(
     tap(heroes => this.log(`Etapa Listado`)),
     catchError(this.handleError('getEtapas', []))
-  )
+  );
 }
 
   private handleError<T>(operation = 'operation', result ?: T) {

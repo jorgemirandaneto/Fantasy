@@ -3,5 +3,5 @@ export class EtapaParticipanteNota {
     fk_participante;
     fk_etapa;
     nota;
-    ano;    
+    ano;
 }

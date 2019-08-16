@@ -1,19 +1,14 @@
 import { CadastroPontuacaoComponent } from './cadastro-pontuacao/cadastro-pontuacao.component';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ParticipantesComponent } from './participantes/participantes.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { AlertModule } from 'ngx-alerts';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
-import { TabelaParticipatesComponent } from './tabela-participates/tabela-participates.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { AuthGuard } from './AuthGuard';
@@ -32,8 +27,6 @@ import { DevedoresService } from './devedores/devedores.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ParticipantesComponent,
-    TabelaParticipatesComponent,
     LoginComponent,
     NotasEtapasComponent,
     DashboardComponent,
@@ -47,7 +40,6 @@ BrowserModule,
     AppRoutingModule,
     AlertModule.forRoot(),
     FormsModule,
-    HttpModule,
     HttpClientModule,
     DataTablesModule,
     BsDropdownModule.forRoot(),
@@ -64,9 +56,9 @@ BrowserModule,
     }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],
-  providers: [LoginService,AuthGuard,JwtHelper,ServiceDdlEtapasService,CadastroPontuacaoService,CookieService,DevedoresService],
+  providers: [LoginService, AuthGuard, JwtHelper, ServiceDdlEtapasService, CadastroPontuacaoService, CookieService, DevedoresService],
   bootstrap: [AppComponent],
-  exports: [BsDropdownModule, TooltipModule, ModalModule,CadastroPontuacaoComponent]
+  exports: [BsDropdownModule, TooltipModule, ModalModule, CadastroPontuacaoComponent]
 
 })
 export class AppModule { }
