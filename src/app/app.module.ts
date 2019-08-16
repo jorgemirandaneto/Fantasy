@@ -28,7 +28,6 @@ import {NgxMaskModule} from 'ngx-mask';
 import { CookieService } from 'ngx-cookie-service';
 import { DevedoresComponent } from './devedores/devedores.component';
 import { DevedoresService } from './devedores/devedores.service';
-import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     DashboardComponent,
     DropdownlistEtapasComponent,
     CadastroPontuacaoComponent,
-    DevedoresComponent,
-    PaginationComponent
+    DevedoresComponent
   ],
   imports: [
 BrowserModule,

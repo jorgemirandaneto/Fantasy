@@ -17,4 +17,5 @@ export class DevedoresService {
     .then(res => {return res})
     .catch(err => {return err})
   }
+
 }
