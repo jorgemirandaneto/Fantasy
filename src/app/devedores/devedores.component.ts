@@ -11,25 +11,27 @@ import { RootDevedores } from '../Models/RootDevedores';
 })
 export class DevedoresComponent implements OnInit {
 
-  devedoresRoot : RootDevedores[] = [];
+  devedoresRoot: RootDevedores[] = [];
   pagina = 30;
+  public loading = false;
 
-  constructor( private alert: AlertService, private service: DevedoresService) { }
+  constructor(private alert: AlertService, private service: DevedoresService) { }
 
   ngOnInit() {
-    this.getDevores(this.pagina);    
+    this.getDevedores(this.pagina);
   }
 
-  getDevores(qtdItempage:number){
+  getDevedores(qtdItempage: number) {
+    this.loading = true;
     this.service.getDevedores(1, qtdItempage)
-    .then(res => {this.devedoresRoot = res})
-    .catch(err => {this.alert.danger("Erro ao listar os devedores")})    
+      .then(res => { this.devedoresRoot = res, this.loading = false; })
+      .catch(err => { this.alert.danger('Erro ao listar os devedores'); });
   }
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e) {
-    if(e.target['scrollingElement'].offsetHeight  -  e.target['scrollingElement'].scrollTop === e.target['scrollingElement'].clientHeight){
+    if (e.target['scrollingElement'].offsetHeight - e.target['scrollingElement'].scrollTop === e.target['scrollingElement'].clientHeight) {
       this.pagina += 20;
-      this.getDevores(this.pagina); 
+      this.getDevedores(this.pagina);
     }
   }
 }

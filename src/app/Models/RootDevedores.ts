@@ -1,4 +1,4 @@
-import { Devedores } from "./Devedores";
+import { Devedores } from './Devedores';
 
 export class RootDevedores {
     totalPaginas: number;

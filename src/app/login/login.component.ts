@@ -22,16 +22,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginService.fecharMenu(false);
     this.usuario.nome = this.cookie.get('nome');
-    this.chkRemenber = this.cookie.get('chk') == "true" ? "checked" : "false";
-    console.log(this.formLogin)
+    this.chkRemenber = this.cookie.get('chk') === 'true' ? 'checked' : 'false';
   }
 
   validarUsuario(form) {
-    if(form.value.Check == true){
-      this.cookie.set('nome', form.value.nome,30);
-      this.cookie.set('chk', form.value.Check == true ? "true" : "false");
+    if (form.value.Check === true) {
+      this.cookie.set('nome', form.value.nome, 30);
+      this.cookie.set('chk', form.value.Check === true ? 'true' : 'false');
     }
-    this.loginService.login(form.value)
+    this.loginService.login(form.value);
   }
 }
 

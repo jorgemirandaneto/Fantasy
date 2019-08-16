@@ -11,10 +11,10 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ServiceNotasEtapasService {
-  token = localStorage.getItem("jwt");
+  token = localStorage.getItem('jwt');
   private headers = new HttpHeaders({
-    "Authorization": "Bearer " + this.token,
-    "Content-Type": "application/json"
+    'Authorization': 'Bearer ' + this.token,
+    'Content-Type': 'application/json'
   });
   private url = environment.url;
   constructor(private http: HttpClient, private alert: AlertService) { }
@@ -25,7 +25,7 @@ export class ServiceNotasEtapasService {
     return this.http.get<EtapaParticipante[]>(url, {
       headers: new HttpHeaders({
         // "Authorization": "Bearer " + this.token,
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       })
     }).pipe(
       tap(heroes => this.log(`EtapaParticipante Listado`)),
@@ -38,26 +38,25 @@ export class ServiceNotasEtapasService {
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
         // "Authorization": "Bearer " + this.token,
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       })
     }).pipe(
       tap(heroes => this.log(`Etapa Listado`)),
       catchError(this.handleError('getEtapas', []))
-    )
+    );
   }
 
-  
- async FinalizarEtapa(idEtapa: number): Promise<any>{
-  return await this.http.post<EtapaParticipante>(this.url + "Etapa/FinalizarEtapa/"+ idEtapa,{
-    headers: new HttpHeaders({
-      // "Authorization": "Bearer " + this.token,
-      "Content-Type": "application/json"
+  async FinalizarEtapa(idEtapa: number): Promise<any> {
+    return await this.http.post<EtapaParticipante>(this.url + 'Etapa/FinalizarEtapa/' + idEtapa, {
+      headers: new HttpHeaders({
+        // "Authorization": "Bearer " + this.token,
+        'Content-Type': 'application/json'
+      })
     })
-  })
-   .toPromise()
-   .then(res => { return this.alert.success('Etapa finalizada com sucesso.') })      
-   .catch(erro => {return this.alert.danger(erro.error)})
-}
+      .toPromise()
+      .then(res => this.alert.success('Etapa finalizada com sucesso.'))
+      .catch(erro => this.alert.danger(erro.error));
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

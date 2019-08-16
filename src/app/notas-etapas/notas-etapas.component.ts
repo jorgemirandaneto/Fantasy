@@ -26,19 +26,20 @@ export class NotasEtapasComponent implements OnInit {
   getEtapaParticipante(id: number) {
     this.loading = true;
     this.service.getEtapaParticipante(id).subscribe(
-      e => { this.etapaParticipante = e, this.loading = false },
-    )
+      e => { this.etapaParticipante = e, this.loading = false; },
+    );
   }
 
   popularTableNota(event) {
-    this.getEtapaParticipante(parseInt(event.value));
+    this.getEtapaParticipante(Number(event.value));
     this.idEtapa = event.value;
   }
 
   finalizarEtapa() {
-    if (this.idEtapa > 0)
+    if (this.idEtapa > 0) {
       this.service.FinalizarEtapa(this.idEtapa);
-    else
+    } else {
       this.alert.danger('Selecione uma etapa para finalizar');
+    }
   }
 }

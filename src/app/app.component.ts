@@ -17,23 +17,21 @@ export class AppComponent implements OnInit {
   validarMenu = false;
 
   ngOnInit() {
-    this.loginMostrarMenu();     
+    this.loginMostrarMenu();
     this.mostraMenu();
   }
   mostraMenu() {
     if (localStorage.getItem('jwt') !== null) {
-      this.validarMenu = true;     
-      console.log("ok")
+      this.validarMenu = true;
     }
   }
 
-  loginMostrarMenu(){
+  loginMostrarMenu() {
     this.login.emitirMenu.subscribe(
-      mostrar => this.validarMenu = mostrar,
-      console.log(this.validarMenu))
-  }
+      mostrar => this.validarMenu = mostrar);
+    }
 
-  logout(){
+  logout() {
     this.login.logOut();
     this.validarMenu = false;
   }

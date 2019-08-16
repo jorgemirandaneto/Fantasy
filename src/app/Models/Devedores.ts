@@ -1,5 +1,5 @@
-import { ParticipanteGanhador } from "./ParticipanteGanhador";
-import { ParticipantePerdedor } from "./ParticipantePerdedor";
+import { ParticipanteGanhador } from './ParticipanteGanhador';
+import { ParticipantePerdedor } from './ParticipantePerdedor';
 
 export class Devedores {
     id: number;

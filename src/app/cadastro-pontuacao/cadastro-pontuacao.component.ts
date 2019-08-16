@@ -9,17 +9,17 @@ import { Etapas } from '../Models/Etapas';
 @Component({
   selector: 'app-cadastro-pontuacao',
   templateUrl: './cadastro-pontuacao.component.html',
-  styleUrls: ['./cadastro-pontuacao.component.css'],  
+  styleUrls: ['./cadastro-pontuacao.component.css'],
 })
 export class CadastroPontuacaoComponent implements OnInit {
- notaParticipante= new EtapaParticipanteNota();
- participante: Participante[] = [];
- etapa: Etapas[] = [];
-  f : FormGroup;
+  notaParticipante = new EtapaParticipanteNota();
+  participante: Participante[] = [];
+  etapa: Etapas[] = [];
+  f: FormGroup;
 
   constructor(private service: CadastroPontuacaoService, private alert: AlertService) { }
 
-  ngOnInit() {      
+  ngOnInit() {
     this.getParticipantes();
     this.getEtapas();
   }
@@ -27,16 +27,19 @@ export class CadastroPontuacaoComponent implements OnInit {
 
   getParticipantes() {
     this.service.getParticipantes()
-    .then(x => this.participante = x);
+      .then(x => this.participante = x);
   }
 
-  getEtapas(){
+  getEtapas() {
     this.service.getEtapas()
-    .then(x => this.etapa = x);
+      .then(x => this.etapa = x);
   }
 
-  SalvarNota(f){
-    let result = this.service.addNota(f.value);
-    result.then( x => x ==='true' ? (this.alert.success('Nota Salva com sucesso') ,f.form.markAsPristine(),f.resetForm()) : this.alert.danger(x));
+  SalvarNota(f) {
+    const resultado = this.service.addNota(f.value);
+    resultado.then(x => x === 'true' ?
+      (this.alert.success('Nota Salva com sucesso'),
+        f.form.markAsPristine(),
+        f.resetForm()) : this.alert.danger(x));
   }
 }

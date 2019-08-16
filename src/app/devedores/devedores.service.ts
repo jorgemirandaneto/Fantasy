@@ -11,11 +11,11 @@ export class DevedoresService {
 
   url = environment.url;
 
-  getDevedores(page: number, qtdItempage:number): Promise<RootDevedores[]>{
+  getDevedores(page: number, qtdItempage: number): Promise<RootDevedores[]> {
     return this.http.get(`${this.url}Devedores/list/${page}/${qtdItempage}`)
     .toPromise()
-    .then(res => {return res})
-    .catch(err => {return err})
+    .then(res =>  res)
+    .catch(err => err);
   }
 
 }

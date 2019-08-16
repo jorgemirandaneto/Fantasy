@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Etapas } from '../Models/Etapas';
 
 @Component({
-  selector: 'dropdownlist-etapas',
+  selector: 'app-dropdownlist-etapas',
   templateUrl: './dropdownlist-etapas.component.html',
   styleUrls: ['./dropdownlist-etapas.component.css']
 })
@@ -14,21 +14,20 @@ export class DropdownlistEtapasComponent implements OnInit {
   @Input() name;
   @Input() ngModel;
   @Input() required;
-  constructor(private serviceEtapas:ServiceDdlEtapasService ) { }
+  constructor(private serviceEtapas: ServiceDdlEtapasService) { }
 
   ngOnInit() {
     this.getEtapas();
   }
 
-  getEtapas(){
+  getEtapas() {
     this.serviceEtapas.getEtapas().subscribe(
-      e => {this.etapas = e}
-    )
+      e => { this.etapas = e; }
+    );
   }
-  GetId(event){
+  GetId(event) {
     this.idEvento = event.target.value;
-    console.log(this.idEvento);  
-    this.idEtapa.emit({value: this.idEvento});
+    console.log(this.idEvento);
+    this.idEtapa.emit({ value: this.idEvento });
   }
 }
- 

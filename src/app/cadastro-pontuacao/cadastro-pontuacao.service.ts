@@ -9,7 +9,7 @@ import { Etapas } from '../Models/Etapas';
 import {  AlertService, Alert } from 'ngx-alerts';
 import { environment } from '../../environments/environment';
 
-const token = localStorage.getItem("jwt");
+const token = localStorage.getItem('jwt');
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,37 +21,37 @@ const httpOptions = {
 export class CadastroPontuacaoService {
 
   private url = environment.url;
-  constructor(private http: HttpClient,private alert :AlertService) { }
+  constructor(private http: HttpClient, private alert: AlertService) { }
 
 
- async addNota(etapaParticipante: EtapaParticipante): Promise<any>{
-     return await this.http.post<EtapaParticipante>(this.url + "Etapa/SalvarNota", etapaParticipante, httpOptions)
+ async addNota(etapaParticipante: EtapaParticipante): Promise<any> {
+     return await this.http.post<EtapaParticipante>(this.url + 'Etapa/SalvarNota', etapaParticipante, httpOptions)
       .toPromise()
-      .then(res => { return 'true' })      
-      .catch(erro => {return erro.error})
-  }
+      .then(res =>  'true' )
+      .catch(erro => erro.error);
+    }
 
   getParticipantes(): Promise<Participante[]> {
-    const url = `${this.url + "Participantes"}`;
+    const url = `${this.url + 'Participantes'}`;
     return this.http.get<Participante[]>(url, {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
       })
     }).toPromise()
-    .then(heroes => {return heroes})
-    .catch(x => {return x})    
+    .then(heroes => heroes)
+    .catch(x => x);
   }
 
   getEtapas(): Promise<Etapas[]> {
     const url = `${this.url + 'Etapa/etapas'}`;
     return this.http.get<Etapas[]>(url, {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
       })
     }).toPromise()
-    .then(heroes => {return heroes})
-    .catch(x => {return x})    
+    .then(heroes => heroes)
+    .catch(err => err.error);
   }
 }
